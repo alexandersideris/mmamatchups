@@ -1,0 +1,2 @@
+class FighterPageController < ApplicationController
+end
