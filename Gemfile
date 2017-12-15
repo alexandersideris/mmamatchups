@@ -40,6 +40,10 @@ group :production do
   gem 'unicorn'
 end
 
+# Use nokogiri for web scraping
+gem 'nokogiri'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,0 +1,13 @@
+<h1>Fights</h1>
+<p>Fighters...</p>
+<% @fighters.each do |fighter| %>
+  <img src=<%= fighter.img_url %> ><br>
+	<%= fighter.name %><br>
+  <%= fighter.rank %><br>
+  <%= fighter.fight_record %><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<% end %>
