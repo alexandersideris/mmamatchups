@@ -3,3 +3,9 @@ app/.DS_Store
 *.cache
 *.log
 *.pid
+# React on Rails
+npm-debug.log*
+node_modules
+
+# Generated js bundles
+/app/assets/webpack/*
