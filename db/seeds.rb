@@ -4,9 +4,25 @@ require 'nokogiri'
 Fighter.destroy_all
 Fight.destroy_all
 
-require 'open-uri'
-require 'nokogiri'
+$flyweights = Array.new([])
+$bantamweights = Array.new([])
+$featherweights = Array.new([])
+$lightweights = Array.new([])
+$welterweights = Array.new([])
+$middleweights = Array.new([])
+$lightheavyweights = Array.new([])
+$heavyweights = Array.new([])
 
+def createFights
+	puts 'Flyweights:' + $flyweights.to_s
+	puts 'Bantamweights:' + $bantamweights.to_s
+	puts 'Featherweights:' + $featherweights.to_s
+	puts 'Lightweights:' + $lightweights.to_s
+	puts 'Welterweights:' + $welterweights.to_s
+	puts 'Middleweights:' + $middleweights.to_s
+	puts 'Light Heavyweights:' + $lightheavyweights.to_s
+	puts 'Heavyweights:' + $heavyweights.to_s
+end
 
 def createFighter(division, rank, name, url, rank_number)
 	puts division
@@ -39,8 +55,54 @@ def createFighter(division, rank, name, url, rank_number)
 	puts 'Record: ' + record[/#{str1}(.*?)#{str2}/m, 1].to_s
   the_record = record[/#{str1}(.*?)#{str2}/m, 1].to_s
 
-  Fighter.create(name: name, division: division, rank: rank, rank_number: rank_number, img_url: img_url, fight_record: the_record)
+  f = Fighter.create(name: name, division: division, rank: rank, rank_number: rank_number, img_url: img_url, fight_record: the_record)
+	if division == 'Flyweight'
+		$flyweights.push(f)
+	elsif division == 'Bantamweight'
+		$bantamweights.push(f)
+	elsif division == 'Featherweight'
+		$featherweights.push(f)
+	elsif division == 'Lightweight'
+		$lightweights.push(f)
+	elsif division == 'Welterweight'
+		$welterweights.push(f)
+	elsif division == 'Middleweight'
+		$middleweights.push(f)
+	elsif division == 'Light Heavyweight'
+		$lightheavyweights.push(f)
+	elsif division == 'Heavyweight'
+		$heavyweights.push(f)
+	end
 
+
+end
+
+def createFights
+	puts 'Flyweights:' + $flyweights.to_s
+	$i = 0
+	while $i < 15  do
+		if $i + 1 < 15
+			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+1].id)
+		end
+		if $i + 2 < 15
+			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+2].id)
+		end
+		if $i + 3 < 15
+			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+3].id)
+		end
+		if $i + 4 < 15
+			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+4].id)
+		end
+   	$i +=1
+	end
+
+	#puts 'Bantamweights:' + $bantamweights.to_s
+	#puts 'Featherweights:' + $featherweights.to_s
+	#puts 'Lightweights:' + $lightweights.to_s
+	#puts 'Welterweights:' + $welterweights.to_s
+	#puts 'Middleweights:' + $middleweights.to_s
+	#puts 'Light Heavyweights:' + $lightheavyweights.to_s
+	#puts 'Heavyweights:' + $heavyweights.to_s
 end
 
 puts "---------FIGHTERS---------"
@@ -92,3 +154,4 @@ divisions.each{|division|
 	}
 
 }
+createFights()
