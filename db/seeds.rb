@@ -141,7 +141,7 @@ divisions.each{|division|
 	division_rankings = division.css('.rankings-table').css('tr')
 	division_rankings.each{|division_rank|
 		rank = division_rank.css('.number-column').inner_text.strip
-		fighter_rank = '# '+ rank + ' ' + division_name
+		fighter_rank = '#'+ rank + ' ' + division_name
 		name = division_rank.css('.name-column').css('a').inner_text.strip
 		#puts name
 

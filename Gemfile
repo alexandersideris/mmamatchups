@@ -43,9 +43,8 @@ end
 # Use nokogiri for web scraping
 gem 'nokogiri'
 
-# Use react_on_rails for React on the front end
-gem "react_on_rails", "~> 6"
-
+# To use React on the front end
+gem 'webpacker', '~> 3.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
