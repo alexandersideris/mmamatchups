@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import 'bootstrap/dist/css/bootstrap.css';
 import { Button } from 'reactstrap';
-import ShowFight from './components/ShowFight';
-import NavigationBar from './components/NavigationBar';
+import ShowFight from './ShowFight';
+import NavigationBar from './NavigationBar';
 
 class Fights extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Fights extends React.Component {
     //console.log(this.props.fights.length);
     return(
       <div>
-        <NavigationBar/>
+        <NavigationBar />
         {fights.map(function(fight){
           return(
             <ShowFight
