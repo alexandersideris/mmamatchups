@@ -1,26 +1,31 @@
 <h1>Fights</h1>
-<%= javascript_pack_tag 'fights' %>
-<p>Fighters...</p>
-<% @fighters.each do |fighter| %>
-  <img src=<%= fighter.img_url %> ><br>
-  <%= fighter.id %><br>
-	<%= fighter.name %><br>
-  <%= fighter.rank %><br>
-  <%= fighter.fight_record %><br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+<%= javascript_pack_tag 'fights',props: { division: 'popular', fights: @fights} %>
+
+<%= content_tag :div,
+  id: "fights_data",
+  data: @fights.to_json do %>
 <% end %>
 
-<% @fights.each do |fight| %>
-	<%= Fighter.find(fight.fighter_one_id).name %> <%= Fighter.find(fight.fighter_one_id).rank %><br>
-  <%= Fighter.find(fight.fighter_two_id).name %> <%= Fighter.find(fight.fighter_two_id).rank %><br>
+<%= content_tag :div,
+  id: "fighters_data",
+  data: @fighters.to_json do %>
+<% end %>
+
+<!--<% @fights.each do |fight| %>
+  <div>
+    <img src=<%= Fighter.find(fight.fighter_one_id).img_url %> ><br>
+  	<%= Fighter.find(fight.fighter_one_id).name %><br>
+    <%= Fighter.find(fight.fighter_one_id).rank %>
+  </div>
+  <div>
+    <img src=<%= Fighter.find(fight.fighter_two_id).img_url %> ><br>
+  	<%= Fighter.find(fight.fighter_two_id).name %><br>
+    <%= Fighter.find(fight.fighter_two_id).rank %><br>
+  </div>
   Upvotes: <%= fight.upvotes %><br>
   <br>
   <br>
   <br>
   <br>
   <br>
-<% end %>
+<% end %>-->
