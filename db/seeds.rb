@@ -96,13 +96,133 @@ def createFights
    	$i +=1
 	end
 
-	#puts 'Bantamweights:' + $bantamweights.to_s
-	#puts 'Featherweights:' + $featherweights.to_s
-	#puts 'Lightweights:' + $lightweights.to_s
-	#puts 'Welterweights:' + $welterweights.to_s
-	#puts 'Middleweights:' + $middleweights.to_s
-	#puts 'Light Heavyweights:' + $lightheavyweights.to_s
-	#puts 'Heavyweights:' + $heavyweights.to_s
+	puts 'Bantamweights:' + $bantamweights.to_s
+	$i = 0
+	while $i < 15  do
+		if $i + 1 < 15
+			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+1].id)
+		end
+		if $i + 2 < 15
+			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+2].id)
+		end
+		if $i + 3 < 15
+			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+3].id)
+		end
+		if $i + 4 < 15
+			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+4].id)
+		end
+   	$i +=1
+	end
+
+	puts 'Featherweights:' + $featherweights.to_s
+	$i = 0
+	while $i < 15  do
+		if $i + 1 < 15
+			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+1].id)
+		end
+		if $i + 2 < 15
+			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+2].id)
+		end
+		if $i + 3 < 15
+			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+3].id)
+		end
+		if $i + 4 < 15
+			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+4].id)
+		end
+   	$i +=1
+	end
+
+	puts 'Lightweights:' + $lightweights.to_s
+	$i = 0
+	while $i < 15  do
+		if $i + 1 < 15
+			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+1].id)
+		end
+		if $i + 2 < 15
+			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+2].id)
+		end
+		if $i + 3 < 15
+			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+3].id)
+		end
+		if $i + 4 < 15
+			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+4].id)
+		end
+   	$i +=1
+	end
+
+	puts 'Welterweights:' + $welterweights.to_s
+	$i = 0
+	while $i < 15  do
+		if $i + 1 < 15
+			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+1].id)
+		end
+		if $i + 2 < 15
+			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+2].id)
+		end
+		if $i + 3 < 15
+			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+3].id)
+		end
+		if $i + 4 < 15
+			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+4].id)
+		end
+   	$i +=1
+	end
+
+	puts 'Middleweights:' + $middleweights.to_s
+	$i = 0
+	while $i < 15  do
+		if $i + 1 < 15
+			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+1].id)
+		end
+		if $i + 2 < 15
+			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+2].id)
+		end
+		if $i + 3 < 15
+			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+3].id)
+		end
+		if $i + 4 < 15
+			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+4].id)
+		end
+   	$i +=1
+	end
+
+	puts 'Light Heavyweights:' + $lightheavyweights.to_s
+	$i = 0
+	while $i < 15  do
+		if $i + 1 < 15
+			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+1].id)
+		end
+		if $i + 2 < 15
+			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+2].id)
+		end
+		if $i + 3 < 15
+			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+3].id)
+		end
+		if $i + 4 < 15
+			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+4].id)
+		end
+   	$i +=1
+	end
+
+	puts 'Heavyweights:' + $heavyweights.to_s
+	$i = 0
+	while $i < 15  do
+		if $i + 1 < 15
+			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+1].id)
+		end
+		if $i + 2 < 15
+			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+2].id)
+		end
+		if $i + 3 < 15
+			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+3].id)
+		end
+		if $i + 4 < 15
+			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+4].id)
+		end
+   	$i +=1
+	end
+
+
 end
 
 puts "---------FIGHTERS---------"

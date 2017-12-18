@@ -23,21 +23,21 @@ export default class ShowFight extends React.Component {
         <div style={{display: 'flex', flexWrap: 'nowrap'}}>
 
           <div style={{textAlign: 'center', margin: '10px'}}>
-            <img src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
+            <img responsive src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
             <p>{fighter_one.name}</p>
             <p>{fighter_one.rank}</p>
             <p>{fighter_one.fight_record}</p>
           </div>
 
           <div style={{textAlign: 'center', margin: '10px'}}>
-            <img src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
+            <img responsive src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
             <p>{fighter_two.name}</p>
             <p>{fighter_two.rank}</p>
             <p>{fighter_two.fight_record}</p>
           </div>
         </div>
 
-        <div style={{display: 'flex', textAlign: 'center', }}>
+        <div style={{display: 'flex', textAlign: 'center', alignSelf: 'center'}}>
           <p>Upvotes {upvotes}</p>
           <Button bsStyle="success">I want to see this fight!</Button>
         </div>

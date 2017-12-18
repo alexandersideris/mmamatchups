@@ -7,33 +7,51 @@ import NavigationBar from './NavigationBar';
 class Fights extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {division: 'popular'};
+    this.state = {division: 'Popular'};
     this.render = this.render.bind(this);
   }
 
 
 
   render() {
-    console.log(this.props.fights)
-    console.log(this.props.fighters)
 
+    console.log("State is: "+this.state.division)
+    var division = this.state.division
     var fights = this.props.fights
+    if (division != 'Popular'){
+      fights = fights.filter(function(e){
+        return e.division == division;
+      })
+    }
+
     var fighters = this.props.fighters
+    var state = this.state
 
     //console.log(this.props.fights.length);
     return(
       <div>
-        <NavigationBar fighters = { fighters }/>
-        {fights.map(function(fight){
-          return(
-            <ShowFight
+        <NavigationBar fighters = { fighters } context = { this } />
+        <div style={{marginTop: '100px'}}>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div>
+                  {fights.map(function(fight){
+                    return(
+                      <ShowFight
+                        fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                        fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                        upvotes = {fight.upvotes}>
+                      </ShowFight>
+                    );
+                  })}
+                </div>
+              </div>
+              
+            </div>
+          </div>
 
-              fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
-              fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
-              upvotes = {fight.upvotes}>
-            </ShowFight>
-          );
-        })}
+        </div>
       </div>
     );
 
