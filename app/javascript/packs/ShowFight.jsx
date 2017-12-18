@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import {Button} from 'react-bootstrap'
 
 export default class ShowFight extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ export default class ShowFight extends React.Component {
 
         <div style={{display: 'flex', textAlign: 'center', }}>
           <p>Upvotes {upvotes}</p>
+          <Button bsStyle="success">I want to see this fight!</Button>
         </div>
 
       </div>

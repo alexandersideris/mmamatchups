@@ -23,7 +23,7 @@ class Fights extends React.Component {
     //console.log(this.props.fights.length);
     return(
       <div>
-        <NavigationBar />
+        <NavigationBar fighters = { fighters }/>
         {fights.map(function(fight){
           return(
             <ShowFight

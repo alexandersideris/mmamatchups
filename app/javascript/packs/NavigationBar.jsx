@@ -1,29 +1,68 @@
 import React from 'react';
-import {Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
+import {Nav, Navbar, NavItem, NavDropdown, MenuItem, Glyphicon, DropdownButton} from 'react-bootstrap'
 export default class NavigationBar extends React.Component {
   constructor(props) {
     super(props);
+    this.render = this.render.bind(this);
+    this.changeDivision = this.changeDivision.bind(this);
+    console.log("Brow the fighters...");
+    console.log(props.fighters);
   }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
+
+  changeDivision(division){
+    console.log(division+" was called.");
   }
+
   render() {
     return (
       <div>
-        <Nav bsStyle="tabs" activeKey="1" onSelect={this.handleSelect}>
-          <NavItem eventKey="1" href="/home">NavItem 1 content</NavItem>
-          <NavItem eventKey="2" title="Item">NavItem 2 content</NavItem>
-          <NavItem eventKey="3" disabled>NavItem 3 content</NavItem>
-          <NavDropdown eventKey="4" title="Dropdown" id="nav-dropdown">
-            <MenuItem eventKey="4.1">Action</MenuItem>
-            <MenuItem eventKey="4.2">Another action</MenuItem>
-            <MenuItem eventKey="4.3">Something else here</MenuItem>
-            <MenuItem divider />
-            <MenuItem eventKey="4.4">Separated link</MenuItem>
-          </NavDropdown>
-        </Nav>
+        <Navbar inverse collapseOnSelect>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#"><Glyphicon glyph="fire" /> Home</a>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav>
+              <NavDropdown eventKey={3} title="Divisions" id="basic-nav-dropdown">
+                <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>Flyweight</MenuItem>
+                <MenuItem eventKey={3.2} onSelect={()=>this.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
+                <MenuItem eventKey={3.3} onSelect={()=>this.changeDivision('Featherweight')}>Featherweight</MenuItem>
+                <MenuItem eventKey={3.4} onSelect={()=>this.changeDivision('Lightweight')}>Lightweight</MenuItem>
+                <MenuItem eventKey={3.5} onSelect={()=>this.changeDivision('Welterweight')}>Welterweight</MenuItem>
+                <MenuItem eventKey={3.6} onSelect={()=>this.changeDivision('Middleweight')}>Middleweight</MenuItem>
+                <MenuItem eventKey={3.7} onSelect={()=>this.changeDivision('Light Heavyweight')}>Light Heavyweight</MenuItem>
+                <MenuItem eventKey={3.8} onSelect={()=>this.changeDivision('Heavyweight')}>Heavyweight</MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey={3.9} onSelect={()=>this.changeDivision("Women\'s Strawweight")}>Women's Strawweight</MenuItem>
+                <MenuItem eventKey={3.10} onSelect={()=>this.changeDivision('Women\'s Flyweight')}>Women's Flyweight</MenuItem>
+                <MenuItem eventKey={3.11} onSelect={()=>this.changeDivision('Women\'s Bantamweight')}>Women's Bantamweight</MenuItem>
+                <MenuItem eventKey={3.12} onSelect={()=>this.changeDivision('Women\'s Featherweight')}>Women's Featherweight</MenuItem>
+              </NavDropdown>
+
+              <NavDropdown eventKey={3} title="Fighters" id="basic-nav-dropdown">
+                <MenuItem eventKey={3.1}>Flyweight</MenuItem>
+                <MenuItem eventKey={3.2}>Bantamweight</MenuItem>
+                <MenuItem eventKey={3.3}>Featherweight</MenuItem>
+                <MenuItem eventKey={3.4}>Flyweight</MenuItem>
+                <MenuItem eventKey={3.5}>Welterweight</MenuItem>
+                <MenuItem eventKey={3.6}>Middleweight</MenuItem>
+                <MenuItem eventKey={3.7}>Light Heavyweight</MenuItem>
+                <MenuItem eventKey={3.8}>Heavyweight</MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey={3.9}>Women's Strawweight</MenuItem>
+                <MenuItem eventKey={3.10}>Women's Flyweight</MenuItem>
+                <MenuItem eventKey={3.11}>Women's Bantamweight</MenuItem>
+                <MenuItem eventKey={3.12}>Women's Featherweight</MenuItem>
+              </NavDropdown>
+            </Nav>
+            <Nav pullRight>
+              <NavItem eventKey={1} href="#"><Glyphicon glyph="log-in" />   Sign In</NavItem>
+              <NavItem eventKey={2} href="#"><Glyphicon glyph="book" />   Sign Up</NavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </div>
     );
   }
