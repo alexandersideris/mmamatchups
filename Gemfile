@@ -41,7 +41,7 @@ group :production do
 end
 
 # Use nokogiri for web scraping
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.8.1'
 
 # To use React on the front end
 gem 'webpacker', '~> 3.0'
