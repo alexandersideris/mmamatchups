@@ -18,6 +18,15 @@ class Fights extends React.Component {
     console.log("State is: "+this.state.division)
     var division = this.state.division
     var fights = this.props.fights
+
+    var c_user = this.props.current_user
+    if(c_user == null){
+      console.log("not logged in bro...")
+    }else{
+      console.log(c_user.name+" is logged in.")
+    }
+
+
     if (division != 'Popular'){
       fights = fights.filter(function(e){
         return e.division == division;
@@ -32,8 +41,8 @@ class Fights extends React.Component {
       <div>
         <NavigationBar fighters = { fighters } context = { this } />
         <div style={{marginTop: '100px'}}>
-          <div class="container">
-            <div class="row">
+          <div className="container">
+            <div className="row">
               <div>
                 <div>
                   {fights.map(function(fight){
@@ -67,8 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const node_two = document.getElementById('fighters_data')
   const data_two = JSON.parse(node_two.getAttribute('data'))
 
+  const node_three = document.getElementById('current_user')
+  const data_three = JSON.parse(node_three.getAttribute('data'))
+
   ReactDOM.render(
-   <Fights fights={data} fighters={data_two}/>,
+   <Fights fights={data} fighters={data_two} current_user={data_three}/>,
    document.body.appendChild(document.createElement('div')),
   )
 })

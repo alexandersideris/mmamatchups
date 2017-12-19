@@ -64,8 +64,8 @@ export default class NavigationBar extends React.Component {
               </NavDropdown>*/}
             </Nav>
             <Nav pullRight>
-              <NavItem eventKey={1} href="#"><Glyphicon glyph="log-in" />   Sign In</NavItem>
-              <NavItem eventKey={2} href="#"><Glyphicon glyph="pencil" />   Sign Up</NavItem>
+              <MenuItem eventKey={1} href="/auth/google_oauth2"><Glyphicon glyph="log-in" />   Sign In With Google</MenuItem>
+              <MenuItem eventKey={2} href="signout"><Glyphicon glyph="log-out" />   Sign Out</MenuItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
