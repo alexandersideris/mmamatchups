@@ -37,9 +37,10 @@ class Fights extends React.Component {
     var state = this.state
 
     //console.log(this.props.fights.length);
+    
     return(
       <div>
-        <NavigationBar fighters = { fighters } context = { this } />
+        <NavigationBar fighters = { fighters } context = { this } current_user = { c_user }/>
         <div style={{marginTop: '100px'}}>
           <div className="container">
             <div className="row">
