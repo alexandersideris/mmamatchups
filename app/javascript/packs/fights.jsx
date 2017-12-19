@@ -34,7 +34,7 @@ class Fights extends React.Component {
         <div style={{marginTop: '100px'}}>
           <div class="container">
             <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <div>
                 <div>
                   {fights.map(function(fight){
                     return(
@@ -47,7 +47,7 @@ class Fights extends React.Component {
                   })}
                 </div>
               </div>
-              
+
             </div>
           </div>
 

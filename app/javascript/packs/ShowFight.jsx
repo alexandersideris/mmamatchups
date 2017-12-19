@@ -18,18 +18,18 @@ export default class ShowFight extends React.Component {
     var fighter_two = this.props.fighter_two
     var upvotes = this.props.upvotes
     return (
-      <div>
+      <div style={{ border: 'black', backgroundColor: ''}}>
 
-        <div style={{display: 'flex', flexWrap: 'nowrap'}}>
+        <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
 
-          <div style={{textAlign: 'center', margin: '10px'}}>
+          <div class="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
             <img responsive src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
             <p>{fighter_one.name}</p>
             <p>{fighter_one.rank}</p>
             <p>{fighter_one.fight_record}</p>
           </div>
 
-          <div style={{textAlign: 'center', margin: '10px'}}>
+          <div class="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
             <img responsive src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
             <p>{fighter_two.name}</p>
             <p>{fighter_two.rank}</p>
@@ -37,7 +37,7 @@ export default class ShowFight extends React.Component {
           </div>
         </div>
 
-        <div style={{display: 'flex', textAlign: 'center', alignSelf: 'center'}}>
+        <div style={{textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
           <p>Upvotes {upvotes}</p>
           <Button bsStyle="success">I want to see this fight!</Button>
         </div>
