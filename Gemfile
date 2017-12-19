@@ -46,6 +46,10 @@ gem 'nokogiri', '~> 1.8.1'
 # To use React on the front end
 gem 'webpacker', '~> 3.0'
 
+# To use Google authentication
+gem "omniauth-google-oauth2", "~> 0.2.1"
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
