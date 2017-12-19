@@ -22,15 +22,15 @@ export default class ShowFight extends React.Component {
 
         <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
 
-          <div class="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
-            <img responsive src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
+          <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
+            <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
             <p>{fighter_one.name}</p>
             <p>{fighter_one.rank}</p>
             <p>{fighter_one.fight_record}</p>
           </div>
 
-          <div class="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
-            <img responsive src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
+          <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
+            <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
             <p>{fighter_two.name}</p>
             <p>{fighter_two.rank}</p>
             <p>{fighter_two.fight_record}</p>
