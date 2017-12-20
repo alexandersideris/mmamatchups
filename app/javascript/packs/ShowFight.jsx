@@ -38,7 +38,7 @@ export default class ShowFight extends React.Component {
         </div>
 
         <div style={{textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
-          <p style={{fontSize: 20, margin: 10}}>Upvotes: {upvotes}</p>
+          <p style={{fontSize: 20, marginBottom: 10}}>Upvotes: {upvotes}</p>
           <Button bsStyle="success">I want to see this fight!</Button>
         </div>
 
