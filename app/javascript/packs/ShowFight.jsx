@@ -24,21 +24,21 @@ export default class ShowFight extends React.Component {
 
           <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
             <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
-            <p>{fighter_one.name}</p>
-            <p>{fighter_one.rank}</p>
-            <p>{fighter_one.fight_record}</p>
+            <p style={{fontSize: 20, margin: 10}}>{fighter_one.name}</p>
+            <p style={{fontSize: 17, margin: 10}}>{fighter_one.rank}</p>
+            <p style={{fontSize: 15, margin: 10}}>{fighter_one.fight_record}</p>
           </div>
 
           <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
             <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
-            <p>{fighter_two.name}</p>
-            <p>{fighter_two.rank}</p>
-            <p>{fighter_two.fight_record}</p>
+            <p style={{fontSize: 20, margin: 10}}>{fighter_two.name}</p>
+            <p style={{fontSize: 17, margin: 10}}>{fighter_two.rank}</p>
+            <p style={{fontSize: 15, margin: 10}}>{fighter_two.fight_record}</p>
           </div>
         </div>
 
         <div style={{textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
-          <p>Upvotes {upvotes}</p>
+          <p style={{fontSize: 20, margin: 10}}>Upvotes: {upvotes}</p>
           <Button bsStyle="success">I want to see this fight!</Button>
         </div>
 

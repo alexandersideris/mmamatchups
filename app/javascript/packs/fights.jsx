@@ -15,16 +15,16 @@ class Fights extends React.Component {
 
   render() {
 
-    console.log("State is: "+this.state.division)
+    //console.log("State is: "+this.state.division)
     var division = this.state.division
     var fights = this.props.fights
 
     var c_user = this.props.current_user
-    if(c_user == null){
+    /*if(c_user == null){
       console.log("not logged in bro...")
     }else{
       console.log(c_user.name+" is logged in.")
-    }
+    }*/
 
 
     if (division != 'Popular'){
@@ -37,7 +37,7 @@ class Fights extends React.Component {
     var state = this.state
 
     //console.log(this.props.fights.length);
-    
+
     return(
       <div>
         <NavigationBar fighters = { fighters } context = { this } current_user = { c_user }/>

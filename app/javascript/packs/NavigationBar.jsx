@@ -5,14 +5,14 @@ export default class NavigationBar extends React.Component {
     super(props);
     this.render = this.render.bind(this);
     this.changeDivision = this.changeDivision.bind(this);
-    console.log("Brow the fighters...");
-    console.log(props.fighters);
-    console.log("bbbbboy")
-    console.log(props.current_user)
+    //console.log("Brow the fighters...");
+    //console.log(props.fighters);
+    //console.log("bbbbboy")
+    //console.log(props.current_user)
   }
 
   changeDivision(division){
-    console.log(division+" was called.");
+    //console.log(division+" was called.");
     this.props.context.setState({
       division: division
     });
