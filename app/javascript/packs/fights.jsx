@@ -37,33 +37,64 @@ class Fights extends React.Component {
     var state = this.state
 
     //console.log(this.props.fights.length);
-
-    return(
-      <div>
-        <NavigationBar fighters = { fighters } context = { this } current_user = { c_user }/>
-        <div style={{marginTop: '100px'}}>
-          <div className="container">
-            <div className="row">
-              <div>
+    if(c_user != null){
+      return(
+        <div>
+          <NavigationBar fighters = { fighters } context = { this } current_user = { c_user }/>
+          <div style={{marginTop: '100px'}}>
+            <div className="container">
+              <div className="row">
                 <div>
-                  {fights.map(function(fight){
-                    return(
-                      <ShowFight
-                        fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
-                        fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
-                        upvotes = {fight.upvotes}>
-                      </ShowFight>
-                    );
-                  })}
+                  <h1>Hello {c_user.name}</h1>
+                  <div>
+                    {fights.map(function(fight){
+                      return(
+                        <ShowFight
+                          fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                          fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                          upvotes = {fight.upvotes}>
+                        </ShowFight>
+                      );
+                    })}
+                  </div>
                 </div>
+
               </div>
-
             </div>
-          </div>
 
+          </div>
         </div>
-      </div>
-    );
+      );
+    }else{
+      return(
+        <div>
+          <NavigationBar fighters = { fighters } context = { this } current_user = { c_user }/>
+          <div style={{marginTop: '100px'}}>
+            <div className="container">
+              <div className="row">
+                <div>
+                  <h1>Hi</h1>
+                  <div>
+                    {fights.map(function(fight){
+                      return(
+                        <ShowFight
+                          fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                          fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                          upvotes = {fight.upvotes}>
+                        </ShowFight>
+                      );
+                    })}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      );
+    }
+
 
   }
 }
