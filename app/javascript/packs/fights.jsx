@@ -19,82 +19,54 @@ class Fights extends React.Component {
     var division = this.state.division
     var the_fighter = this.state.the_fighter
     var fights = this.props.fights
-
+    var fighters = this.props.fighters
+    var state = this.state
     var c_user = this.props.current_user
-
+    var title = 'Popular matchups.'
     if (division == 'None'){
+      title = 'Popular '+fighters.find(function(e){ return e.id == the_fighter }).name+' matchups.'
       fights = fights.filter(function(e){
         return e.fighter_one_id == the_fighter || e.fighter_two_id == the_fighter;
       })
     }else if (division != 'Popular'){
+      title = 'Popular '+division+' matchups.'
       fights = fights.filter(function(e){
         return e.division == division;
       })
     }
 
 
-    var fighters = this.props.fighters
-    var state = this.state
+
 
     //console.log(this.props.fights.length);
-    if(c_user != null){
-      return(
-        <div>
-          <NavigationBar fighters = { fighters } context = { this } current_user = { c_user }/>
-          <div style={{marginTop: '100px'}}>
-            <div className="container">
-              <div className="row">
+
+    return(
+      <div>
+        <NavigationBar fighters = { fighters } context = { this } current_user = { c_user }/>
+        <div style={{marginTop: '100px'}}>
+          <div className="container">
+            <div className="row">
+              <div>
+                <h1 style={{fontSize: 30, textAlign: 'center', paddingBottom: 50}}>{title}</h1>
                 <div>
-                  <h1>Hello {c_user.name}</h1>
-                  <div>
-                    {fights.map(function(fight){
-                      return(
-                        <ShowFight
-                          fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
-                          fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
-                          upvotes = {fight.upvotes}>
-                        </ShowFight>
-                      );
-                    })}
-                  </div>
+                  {fights.map(function(fight){
+                    return(
+                      <ShowFight
+                        fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                        fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                        upvotes = {fight.upvotes}>
+                      </ShowFight>
+                    );
+                  })}
                 </div>
-
               </div>
+
             </div>
-
           </div>
+
         </div>
-      );
-    }else{
-      return(
-        <div>
-          <NavigationBar fighters = { fighters } context = { this } current_user = { c_user }/>
-          <div style={{marginTop: '100px'}}>
-            <div className="container">
-              <div className="row">
-                <div>
-                  <h1>Hi</h1>
-                  <div>
-                    {fights.map(function(fight){
-                      return(
-                        <ShowFight
-                          fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
-                          fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
-                          upvotes = {fight.upvotes}>
-                        </ShowFight>
-                      );
-                    })}
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      );
-    }
-
+      </div>
+    );
 
   }
 }
