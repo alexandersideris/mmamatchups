@@ -7,7 +7,7 @@ import NavigationBar from './NavigationBar';
 class Fights extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {division: 'Popular'};
+    this.state = {division: 'Popular', the_fighter: ''};
     this.render = this.render.bind(this);
   }
 
@@ -17,21 +17,21 @@ class Fights extends React.Component {
 
     //console.log("State is: "+this.state.division)
     var division = this.state.division
+    var the_fighter = this.state.the_fighter
     var fights = this.props.fights
 
     var c_user = this.props.current_user
-    /*if(c_user == null){
-      console.log("not logged in bro...")
-    }else{
-      console.log(c_user.name+" is logged in.")
-    }*/
 
-
-    if (division != 'Popular'){
+    if (division == 'None'){
+      fights = fights.filter(function(e){
+        return e.fighter_one_id == the_fighter || e.fighter_two_id == the_fighter;
+      })
+    }else if (division != 'Popular'){
       fights = fights.filter(function(e){
         return e.division == division;
       })
     }
+
 
     var fighters = this.props.fighters
     var state = this.state

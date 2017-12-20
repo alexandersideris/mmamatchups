@@ -5,6 +5,7 @@ export default class NavigationBar extends React.Component {
     super(props);
     this.render = this.render.bind(this);
     this.changeDivision = this.changeDivision.bind(this);
+    this.changeFighter = this.changeFighter.bind(this);
     //console.log("Brow the fighters...");
     console.log(props.fighters);
     //console.log("bbbbboy")
@@ -18,8 +19,17 @@ export default class NavigationBar extends React.Component {
     });
   }
 
+  changeFighter(the_fighter){
+    //console.log("I was called. No way..... fucking wizard...");
+    this.props.context.setState({
+      division: "None",
+      the_fighter: the_fighter
+    });
+  }
+
   render() {
     var fighters = this.props.fighters;
+    var self = this;
     if(this.props.current_user == null){
       return (
         <div>
@@ -55,7 +65,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Flyweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -64,7 +74,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Bantamweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -73,7 +83,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Featherweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -82,7 +92,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Lightweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -91,7 +101,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Welterweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -100,7 +110,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Middleweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -109,7 +119,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Light Heavyweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -118,7 +128,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Heavyweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -130,7 +140,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == "Women's Strawweight";
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -139,7 +149,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == "Women's Flyweight";
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -148,7 +158,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == "Women's Bantamweight";
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -157,7 +167,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == "Women's Featherweight";
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -206,7 +216,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Flyweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -215,7 +225,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Bantamweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -224,7 +234,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Featherweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -233,7 +243,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Lightweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -242,7 +252,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Welterweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -251,7 +261,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Middleweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -260,7 +270,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Light Heavyweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -269,7 +279,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == 'Heavyweight';
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -281,7 +291,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == "Women's Strawweight";
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -290,7 +300,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == "Women's Flyweight";
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -299,7 +309,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == "Women's Bantamweight";
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
@@ -308,7 +318,7 @@ export default class NavigationBar extends React.Component {
                       return e.division == "Women's Featherweight";
                     }).map(function(f){
                       return(
-                        <MenuItem eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>{f.name}</MenuItem>
+                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
                       );
                     })}
                   </NavDropdown>
