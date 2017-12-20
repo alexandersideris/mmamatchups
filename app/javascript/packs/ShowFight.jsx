@@ -17,20 +17,23 @@ export default class ShowFight extends React.Component {
     var fighter_one = this.props.fighter_one
     var fighter_two = this.props.fighter_two
     var upvotes = this.props.upvotes
+
+
+
     return (
       <div style={{ border: 'black', backgroundColor: ''}}>
 
         <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
 
           <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
-            <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
+            <img responsive src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
             <p style={{fontSize: 20, margin: 10}}>{fighter_one.name}</p>
             <p style={{fontSize: 17, margin: 10}}>{fighter_one.rank}</p>
             <p style={{fontSize: 15, margin: 10}}>{fighter_one.fight_record}</p>
           </div>
 
           <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
-            <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
+            <img responsive src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
             <p style={{fontSize: 20, margin: 10}}>{fighter_two.name}</p>
             <p style={{fontSize: 17, margin: 10}}>{fighter_two.rank}</p>
             <p style={{fontSize: 15, margin: 10}}>{fighter_two.fight_record}</p>
