@@ -6,10 +6,6 @@ export default class NavigationBar extends React.Component {
     this.render = this.render.bind(this);
     this.changeDivision = this.changeDivision.bind(this);
     this.changeFighter = this.changeFighter.bind(this);
-    //console.log("Brow the fighters...");
-    //console.log(props.fighters);
-    //console.log("bbbbboy")
-    //console.log(props.current_user)
   }
 
   changeDivision(division){
@@ -64,72 +60,128 @@ export default class NavigationBar extends React.Component {
                     {fighters.filter(function(e){
                       return e.division == 'Flyweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Bantamweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Bantamweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Featherweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Featherweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Lightweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Lightweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Welterweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Welterweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Middleweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Middleweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Light Heavyweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Light Heavyweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Heavyweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Heavyweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
 
@@ -139,36 +191,64 @@ export default class NavigationBar extends React.Component {
                     {fighters.filter(function(e){
                       return e.division == "Women's Strawweight";
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Women's Flyweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == "Women's Flyweight";
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Women's Bantamweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == "Women's Bantamweight";
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Women's Featherweight" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == "Women's Featherweight";
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
 
@@ -215,72 +295,128 @@ export default class NavigationBar extends React.Component {
                     {fighters.filter(function(e){
                       return e.division == 'Flyweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Bantamweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Bantamweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Featherweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Featherweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Lightweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Lightweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Welterweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Welterweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Middleweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Middleweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Light Heavyweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Light Heavyweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Heavyweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == 'Heavyweight';
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
 
@@ -290,36 +426,64 @@ export default class NavigationBar extends React.Component {
                     {fighters.filter(function(e){
                       return e.division == "Women's Strawweight";
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Women's Flyweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == "Women's Flyweight";
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Women's Bantamweights" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == "Women's Bantamweight";
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
                   <NavDropdown eventKey={3} title="Women's Featherweight" id="basic-nav-dropdown">
                     {fighters.filter(function(e){
                       return e.division == "Women's Featherweight";
                     }).map(function(f){
-                      return(
-                        <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.name}</MenuItem>
-                      );
+                      if(f.rank_number == 0){
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>(C) - {f.name}</MenuItem>
+                        );
+                      }else{
+                        return(
+                          <MenuItem eventKey={3.1} onSelect={()=>self.changeFighter(f.id)}>{f.rank_number} - {f.name}</MenuItem>
+                        );
+                      }
+
                     })}
                   </NavDropdown>
 
