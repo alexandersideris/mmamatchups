@@ -16,7 +16,7 @@ export default class ShowFight extends React.Component {
       alert('You need to sign in to vote mate!    :)');
     }else{
       console.log(this.props.current_user.name+ " liked fight "+this.props.fight)
-      var url = "http://localhost:3000/fights/vote?id="+this.props.fight+'&user_id='+this.props.current_user.id
+      var url = "http://www.mmamatchups.herokuapp.com/fights/vote?id="+this.props.fight+'&user_id='+this.props.current_user.id
       console.log(url)
       var fight = this.props.fight;
       var ctx = this.props.context
@@ -34,7 +34,7 @@ export default class ShowFight extends React.Component {
 
   unlike(){
     console.log(this.props.current_user.name+ " unliked fight "+this.props.fight)
-    var url = "http://localhost:3000/fights/unvote?id="+this.props.fight+'&user_id='+this.props.current_user.id
+    var url = "http://www.mmamatchups.herokuapp.com/fights/unvote?id="+this.props.fight+'&user_id='+this.props.current_user.id
     console.log(url)
     var fight = this.props.fight;
     var ctx = this.props.context
