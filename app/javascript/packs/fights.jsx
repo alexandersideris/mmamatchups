@@ -7,7 +7,7 @@ import NavigationBar from './NavigationBar';
 class Fights extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {division: 'Popular', the_fighter: ''};
+    this.state = {division: 'Popular', the_fighter: '', has_voted: '', has_unvoted: ''};
     this.render = this.render.bind(this);
   }
 
@@ -15,7 +15,8 @@ class Fights extends React.Component {
 
   render() {
 
-    //console.log("State is: "+this.state.division)
+    var has_voted = this.state.has_voted
+    var has_unvoted = this.state.has_unvoted
     var division = this.state.division
     var the_fighter = this.state.the_fighter
     var fights = this.props.fights
@@ -34,15 +35,24 @@ class Fights extends React.Component {
         return e.division == division;
       })
     }
-
-
-
-
-    //console.log(this.props.fights.length);
-
+    if(has_voted != ''){
+      var f = fights.find(function(e){ return e.id == has_voted; })
+      f.upvotes = f.upvotes + 1
+      f.has_voted = 'true'
+      f.save
+      this.setState({has_voted: ''});
+    }
+    if(has_unvoted != ''){
+      var f = fights.find(function(e){ return e.id == has_unvoted; })
+      f.upvotes = f.upvotes - 1
+      f.has_voted = 'false'
+      f.save
+      this.setState({has_unvoted: ''});
+    }
+    var context = this;
     return(
       <div>
-        <NavigationBar fighters = { fighters } context = { this } current_user = { c_user }/>
+        <NavigationBar fighters = { fighters } context = { context } current_user = { c_user }/>
         <div style={{marginTop: '100px'}}>
           <div className="container">
             <div className="row">
@@ -52,6 +62,10 @@ class Fights extends React.Component {
                   {fights.map(function(fight){
                     return(
                       <ShowFight
+                        context = { context }
+                        current_user = {c_user}
+                        has_voted = { fight.has_voted }
+                        fight = { fight.id }
                         fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
                         fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
                         upvotes = {fight.upvotes}>

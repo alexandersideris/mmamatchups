@@ -5,7 +5,17 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   get 'fights/index'
+
+  get 'fights/vote'
+  
+  get 'fights/unvote'
+
+  get 'fights/like'
+
+  get 'fights/unlike'
+
   resources :fights
+
   root 'fights#index'
   get '/privacypolicy/', to: 'privacypolicys#index'
 
@@ -15,5 +25,5 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
-  
+
 end

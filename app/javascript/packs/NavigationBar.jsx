@@ -7,7 +7,7 @@ export default class NavigationBar extends React.Component {
     this.changeDivision = this.changeDivision.bind(this);
     this.changeFighter = this.changeFighter.bind(this);
     //console.log("Brow the fighters...");
-    console.log(props.fighters);
+    //console.log(props.fighters);
     //console.log("bbbbboy")
     //console.log(props.current_user)
   }
