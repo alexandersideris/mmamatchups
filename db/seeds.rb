@@ -1,8 +1,6 @@
 require 'open-uri'
 require 'nokogiri'
 
-Fighter.destroy_all
-Fight.destroy_all
 
 $flyweights = Array.new([])
 $bantamweights = Array.new([])
@@ -65,7 +63,21 @@ def createFighter(division, rank, name, url, rank_number)
 	puts 'Record: ' + record[/#{str1}(.*?)#{str2}/m, 1].to_s
   the_record = record[/#{str1}(.*?)#{str2}/m, 1].to_s
 
-  f = Fighter.create(name: name, division: division, rank: rank, rank_number: rank_number, img_url: img_url, fight_record: the_record)
+	# Check if the fighter already exists in the database. We will pretend that names are unique, which they are atm
+	f = Fighter.where(name: name).take
+	if f != nil
+		f.division = division
+		f.rank = rank
+		f.rank_number = rank_number
+		f.img_url = img_url
+		f.fight_record = the_record
+		f.is_updated = 'true'
+		f.save
+	else
+		f = Fighter.create(name: name, division: division, rank: rank, rank_number: rank_number, img_url: img_url, fight_record: the_record, is_updated: 'true')
+	end
+
+
 	if division == 'Flyweight'
 		$flyweights.push(f)
 	elsif division == 'Bantamweight'
@@ -464,6 +476,13 @@ def createFights
 
 end
 
+
+fighters = Fighter.all
+fighters.each{|fighter|
+	fighter.is_updated = 'false'
+	fighter.save
+}
+
 puts "---------FIGHTERS---------"
 
 document = open('http://www.ufc.com/rankings/')
@@ -514,3 +533,15 @@ divisions.each{|division|
 
 }
 createFights()
+
+# Now check the fighters where is_updated=false. That means they are no longer ranked in the top 15. Delete their fights and delete them.
+
+unranked_fighters = Fighter.where(is_updated: 'false')
+unranked_fighters.each{|f|
+	# Delete all their fights
+	fights = Fight.where("fighter_one_id = '"+f.id+"' OR fighter_two_id = '"+f.id+"'")
+	fight.each{|fi|
+		fi.destroy
+	}
+	f.destroy
+}
