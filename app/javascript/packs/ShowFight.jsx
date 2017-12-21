@@ -90,7 +90,7 @@ export default class ShowFight extends React.Component {
 
           <div style={{textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
             <p style={{fontSize: 20, marginBottom: 10}}>Upvotes: {upvotes}</p>
-            <Button onClick={()=>this.unlike()} bsStyle="primary">Unvote</Button>
+            <Button onClick={()=>this.unlike()} bsStyle="success" active>You upvoted this fight</Button>
           </div>
 
         </div>
@@ -119,7 +119,7 @@ export default class ShowFight extends React.Component {
 
           <div style={{textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
             <p style={{fontSize: 20, marginBottom: 10}}>Upvotes: {upvotes}</p>
-            <Button ref="button" onClick={()=>this.like()} bsStyle="success">I want to see this fight!</Button>
+            <Button ref="button" onClick={()=>this.like()} bsStyle="info">Upvote this fight!</Button>
           </div>
 
         </div>
