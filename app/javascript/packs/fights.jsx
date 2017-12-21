@@ -7,7 +7,7 @@ import NavigationBar from './NavigationBar';
 class Fights extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {division: 'Popular', the_fighter: '', has_voted: ''};
+    this.state = {division: 'Popular', the_fighter: '', has_voted: '', has_unvoted: ''};
     this.render = this.render.bind(this);
   }
 
@@ -16,10 +16,10 @@ class Fights extends React.Component {
   render() {
 
     var has_voted = this.state.has_voted
+    var has_unvoted = this.state.has_unvoted
     var division = this.state.division
     var the_fighter = this.state.the_fighter
     var fights = this.props.fights
-    console.log(fights)
     var fighters = this.props.fighters
     var state = this.state
     var c_user = this.props.current_user
@@ -36,11 +36,18 @@ class Fights extends React.Component {
       })
     }
     if(has_voted != ''){
-      console.log("OHHH SHIIIIT")
       var f = fights.find(function(e){ return e.id == has_voted; })
       f.upvotes = f.upvotes + 1
       f.has_voted = 'true'
       f.save
+      this.setState({has_voted: ''});
+    }
+    if(has_unvoted != ''){
+      var f = fights.find(function(e){ return e.id == has_unvoted; })
+      f.upvotes = f.upvotes - 1
+      f.has_voted = 'false'
+      f.save
+      this.setState({has_unvoted: ''});
     }
     var context = this;
     return(

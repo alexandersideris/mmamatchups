@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'fights/index'
 
   get 'fights/vote'
+  
+  get 'fights/unvote'
 
   get 'fights/like'
 

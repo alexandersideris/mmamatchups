@@ -2,10 +2,9 @@ class FightsController < ApplicationController
 
   def index
     @fighters = Fighter.all
-    @fights = Fight.all
+    @fights = Fight.order("upvotes DESC")
     if current_user != nil
       @fights.each do |fight|
-        fight.upvotes = fight.votes_for.size
         if current_user.voted_for? fight
           fight.has_voted = 'true'
         else
@@ -29,11 +28,20 @@ class FightsController < ApplicationController
   end
 
   def vote
-    puts 'HEYHEY'
     @fight = Fight.find(params[:id])
     @user = User.find(params[:user_id])
     @fight.liked_by @user
     @fight.upvotes = @fight.upvotes + 1
+    @fight.save
+    redirect_to '/'
+  end
+
+  def unvote
+    @fight = Fight.find(params[:id])
+    @user = User.find(params[:user_id])
+    @fight.unliked_by @user
+    @fight.upvotes = @fight.upvotes - 1
+    @fight.save
     redirect_to '/'
   end
 
