@@ -33,7 +33,7 @@ export default class NavigationBar extends React.Component {
             <Navbar.Header>
               <Navbar.Brand>
                 {/*<a href="#"><img src="https://i.imgur.com/Xs3GP6z.png" style={{width: '65px', marginBottom: '5px'}} /></a>*/}
-                <a style={{color: 'white'}} href="#" onClick={()=>this.changeDivision('Popular')}><Glyphicon glyph="fire" /> MMAmatchups</a>
+                <a style={{color: 'white'}} href="#" onClick={()=>this.changeDivision('Popular')}><Glyphicon glyph="fire" /> MMAmatchups.net</a>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
@@ -268,7 +268,7 @@ export default class NavigationBar extends React.Component {
             <Navbar.Header>
               <Navbar.Brand>
                 {/*<a href="#"><img src="https://i.imgur.com/Xs3GP6z.png" style={{width: '65px', marginBottom: '5px'}} /></a>*/}
-                <a style={{color: 'white'}} href="#" onClick={()=>this.changeDivision('Popular')}><Glyphicon glyph="fire" /> MMAmatchups</a>
+                <a style={{color: 'white'}} href="#" onClick={()=>this.changeDivision('Popular')}><Glyphicon glyph="fire" /> MMAmatchups.net</a>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
