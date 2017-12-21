@@ -16,6 +16,7 @@ class Fights extends React.Component {
   render() {
 
     //console.log("State is: "+this.state.division)
+
     var division = this.state.division
     var the_fighter = this.state.the_fighter
     var fights = this.props.fights
@@ -52,6 +53,8 @@ class Fights extends React.Component {
                   {fights.map(function(fight){
                     return(
                       <ShowFight
+                        current_user = { c_user }
+                        fight = { fight.id }
                         fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
                         fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
                         upvotes = {fight.upvotes}>

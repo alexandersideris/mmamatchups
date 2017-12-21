@@ -49,6 +49,8 @@ gem 'webpacker', '~> 3.0'
 # To use Google authentication
 gem "omniauth-google-oauth2", "~> 0.2.1"
 
+#To enable upvoting
+gem 'acts_as_votable', '~> 0.11.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

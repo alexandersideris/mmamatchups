@@ -7,13 +7,16 @@ export default class ShowFight extends React.Component {
   constructor(props) {
     super(props);
     this.render = this.render.bind(this);
+    this.vote = this.vote.bind(this);
   }
 
   vote(){
-    console.log("Hello from vote.")
+    console.log(this.props.current_user.name+ " voted for fight "+this.props.fight)
+    //this.props.current_user
   }
 
   render() {
+    var fight = this.props.id
     var fighter_one = this.props.fighter_one
     var fighter_two = this.props.fighter_two
     var upvotes = this.props.upvotes
@@ -42,7 +45,7 @@ export default class ShowFight extends React.Component {
 
         <div style={{textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
           <p style={{fontSize: 20, marginBottom: 10}}>Upvotes: {upvotes}</p>
-          <Button bsStyle="success">I want to see this fight!</Button>
+          <Button onClick={()=>this.vote()} bsStyle="success">I want to see this fight!</Button>
         </div>
 
       </div>
