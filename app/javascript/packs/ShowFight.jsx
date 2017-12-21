@@ -20,12 +20,17 @@ export default class ShowFight extends React.Component {
       console.log(url)
       var fight = this.props.fight;
       var ctx = this.props.context
+      ctx.setState({
+        has_voted: fight,
+        has_unvoted: '',
+      });
+
       fetch(url)
         .then((response) => {
-          if(response.status==200){
+          if(response.status!=200){
             ctx.setState({
-              has_voted: fight,
-              has_unvoted: '',
+              has_unvoted: fight,
+              has_voted: '',
             });
           }
         })
