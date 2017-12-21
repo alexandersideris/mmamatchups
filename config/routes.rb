@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :fights do
     member do
-      get ‘like’
-      get ‘unlike’
+      get 'like'
+      get 'unlike'
     end
   end
 
