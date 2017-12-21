@@ -6,12 +6,13 @@ Rails.application.routes.draw do
 
   get 'fights/index'
 
-  resources :fights do
-    member do
-      get 'like'
-      get 'unlike'
-    end
-  end
+  get 'fights/vote'
+
+  get 'fights/like'
+
+  get 'fights/unlike'
+
+  resources :fights
 
   root 'fights#index'
   get '/privacypolicy/', to: 'privacypolicys#index'
