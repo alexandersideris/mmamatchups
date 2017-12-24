@@ -281,13 +281,13 @@ export default class NavigationBar extends React.Component {
               <Navbar.Header>
                 <Navbar.Brand>
                   {/*<a href="#"><img src="https://i.imgur.com/Xs3GP6z.png" style={{width: '65px', marginBottom: '5px'}} /></a>*/}
-                  <a style={{color: 'white', fontSize: 30, marginTop: 10}} href="#" onClick={()=>this.changeDivision('Popular')}><Glyphicon glyph="fire" /> MMAmatchups.net</a>
+                  <a style={{color: 'white', fontSize: 40, marginTop: 20}} href="#" onClick={()=>this.changeDivision('Popular')}><Glyphicon glyph="fire" /> MMAmatchups.net</a>
                 </Navbar.Brand>
-                <Navbar.Toggle style={{margin: 30}}/>
+                <Navbar.Toggle style={{height: 100, paddingLeft:100, paddingRight:100, backgroundColor: '', borderStyle: 'solid', borderColor: 'white'}}/>
               </Navbar.Header>
               <Navbar.Collapse>
                 <Nav>
-                  <NavDropdown style={fontsMobile} style={{color: 'white'}} eventKey={3} title="Divisions" id="basic-nav-dropdown">
+                  <NavDropdown style={fontsMobile} eventKey={3} title="Divisions" id="basic-nav-dropdown">
                     <MenuItem style={fontsMobile} eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>Flyweight</MenuItem>
                     <MenuItem style={fontsMobile} eventKey={3.2} onSelect={()=>this.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
                     <MenuItem style={fontsMobile} eventKey={3.3} onSelect={()=>this.changeDivision('Featherweight')}>Featherweight</MenuItem>
@@ -303,7 +303,7 @@ export default class NavigationBar extends React.Component {
                     <MenuItem style={fontsMobile} eventKey={3.12} onSelect={()=>this.changeDivision('Women\'s Featherweight')}>Women's Featherweight</MenuItem>
                   </NavDropdown>
 
-                  <NavDropdown style={{fontSize: 30, margin: 25, color: 'white'}} eventKey={4} title="Fighters" id="basic-nav-dropdown">
+                  <NavDropdown style={fontsMobile} eventKey={4} title="Fighters" id="basic-nav-dropdown">
                     <NavDropdown style={fontsMobile} eventKey={3} title="Flyweights" id="basic-nav-dropdown">
                       {fighters.filter(function(e){
                         return e.division == 'Flyweight';
@@ -503,7 +503,7 @@ export default class NavigationBar extends React.Component {
                   </NavDropdown>
                 </Nav>
                 <Nav pullRight>
-                  <MenuItem style={fontsMobile} eventKey={2} href="signout"><Glyphicon glyph="log-out" />   Log Out</MenuItem>
+                  <MenuItem style={{fontSize: 30, paddingBottom: 10}} eventKey={2} href="signout"><Glyphicon glyph="log-out" />   Log Out</MenuItem>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>

@@ -15,9 +15,12 @@ class Fights extends React.Component {
 
   render() {
     var isMobile='false'
+    var paddingTop = 0
     if (/Android|webOS|iPhone|iPad|BlackBerry|Windows Phone|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent)){
       isMobile = 'true'
+      paddingTop = 50
     }
+    console.log(paddingTop)
     var has_voted = this.state.has_voted
     var has_unvoted = this.state.has_unvoted
     var division = this.state.division
@@ -53,39 +56,73 @@ class Fights extends React.Component {
       this.setState({has_unvoted: ''});
     }
     var context = this;
-    return(
-      <div>
-        <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
-        <div style={{marginTop: '100px'}}>
-          <div className="container">
-            <div className="row">
-              <div>
-                <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50}}>{title}</h1>
+    if(isMobile=='true'){
+      return(
+        <div>
+          <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
+          <div style={{marginTop: '100px'}}>
+            <div className="container">
+              <div className="row">
                 <div>
-                  {fights.map(function(fight){
-                    return(
-                      <ShowFight
-                        isMobile={isMobile}
-                        context = { context }
-                        current_user = {c_user}
-                        has_voted = { fight.has_voted }
-                        fight = { fight.id }
-                        fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
-                        fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
-                        upvotes = {fight.upvotes}>
-                      </ShowFight>
-                    );
-                  })}
+                  <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
+                  <div>
+                    {fights.map(function(fight){
+                      return(
+                        <ShowFight
+                          isMobile={isMobile}
+                          context = { context }
+                          current_user = {c_user}
+                          has_voted = { fight.has_voted }
+                          fight = { fight.id }
+                          fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                          fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                          upvotes = {fight.upvotes}>
+                        </ShowFight>
+                      );
+                    })}
+                  </div>
                 </div>
+
               </div>
-
             </div>
+
           </div>
-
         </div>
-      </div>
-    );
+      );
+    }else{
+      return(
+        <div>
+          <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
+          <div style={{marginTop: '100px'}}>
+            <div className="container">
+              <div className="row">
+                <div>
+                  <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50 }}>{title}</h1>
+                  <div>
+                    {fights.map(function(fight){
+                      return(
+                        <ShowFight
+                          isMobile={isMobile}
+                          context = { context }
+                          current_user = {c_user}
+                          has_voted = { fight.has_voted }
+                          fight = { fight.id }
+                          fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                          fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                          upvotes = {fight.upvotes}>
+                        </ShowFight>
+                      );
+                    })}
+                  </div>
+                </div>
 
+              </div>
+            </div>
+
+          </div>
+        </div>
+      );
+    }
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import {Button} from 'react-bootstrap'
+import {Button, Glyphicon} from 'react-bootstrap'
 
 export default class ShowFight extends React.Component {
   constructor(props) {
@@ -78,22 +78,22 @@ export default class ShowFight extends React.Component {
 
               <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
                 <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
-                <p style={{fontSize: 35, margin: 10}}>{fighter_one.name}</p>
+                <p style={{fontSize: 35, marginTop: 15}}>{fighter_one.name}</p>
                 <p style={{fontSize: 28, margin: 10}}>{fighter_one.rank}</p>
                 <p style={{fontSize: 22}}>{fighter_one.fight_record}</p>
               </div>
 
               <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
                 <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
-                <p style={{fontSize: 35, margin: 10}}>{fighter_two.name}</p>
+                <p style={{fontSize: 35, marginTop: 15}}>{fighter_two.name}</p>
                 <p style={{fontSize: 28, margin: 10}}>{fighter_two.rank}</p>
                 <p style={{fontSize: 22}}>{fighter_two.fight_record}</p>
               </div>
             </div>
 
             <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
-              <p style={{fontSize: 28, marginBottom: 10}}>Upvotes: {upvotes}</p>
-              <Button onClick={()=>this.unlike()} bsStyle="success"  style={{fontSize: 22}} active>You upvoted this fight</Button>
+              <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: {upvotes}</p>
+              <Button onClick={()=>this.unlike()} bsStyle="success"  style={{fontSize: 30}} active>You upvoted this fight</Button>
             </div>
 
           </div>
@@ -109,22 +109,22 @@ export default class ShowFight extends React.Component {
 
               <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
                 <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
-                <p style={{fontSize: 36, margin: 10}}>{fighter_one.name}</p>
+                <p style={{fontSize: 36, marginTop: 15}}>{fighter_one.name}</p>
                 <p style={{fontSize: 28, margin: 10}}>{fighter_one.rank}</p>
                 <p style={{fontSize: 22, margin: 10}}>{fighter_one.fight_record}</p>
               </div>
 
               <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
                 <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
-                <p style={{fontSize: 35, margin: 10}}>{fighter_two.name}</p>
+                <p style={{fontSize: 35, marginTop: 15}}>{fighter_two.name}</p>
                 <p style={{fontSize: 28, margin: 10}}>{fighter_two.rank}</p>
                 <p style={{fontSize: 22, margin: 10}}>{fighter_two.fight_record}</p>
               </div>
             </div>
 
             <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
-              <p style={{fontSize: 28, marginBottom: 10}}>Upvotes: {upvotes}</p>
-              <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 22}}>Upvote this fight!</Button>
+              <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: {upvotes}</p>
+              <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 30}}>Upvote this fight!</Button>
             </div>
 
           </div>
@@ -155,7 +155,7 @@ export default class ShowFight extends React.Component {
             </div>
 
             <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
-              <p style={{fontSize: 20, marginBottom: 10}}>Upvotes: {upvotes}</p>
+              <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: {upvotes}</p>
               <Button onClick={()=>this.unlike()} bsStyle="success"  style={{fontSize: 22}} active>You upvoted this fight</Button>
             </div>
 
