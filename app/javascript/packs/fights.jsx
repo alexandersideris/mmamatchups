@@ -57,7 +57,7 @@ class Fights extends React.Component {
           <div className="container">
             <div className="row">
               <div>
-                <h1 style={{fontSize: 30, textAlign: 'center', paddingBottom: 50}}>{title}</h1>
+                <h1 style={{fontSize: 35, textAlign: 'center', paddingBottom: 50}}>{title}</h1>
                 <div>
                   {fights.map(function(fight){
                     return(

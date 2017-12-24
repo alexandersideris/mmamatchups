@@ -5,9 +5,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
-  <%= stylesheet_link_tag  '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' %>
-  <%= javascript_include_tag  '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' %>
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+
   <%= csrf_meta_tags %>
 
   <% if Rails.env == "production"  %>
@@ -21,11 +25,6 @@
       gtag('config', 'UA-111441378-1');
     </script>
   <% end %>
-  @media (max-width: 600px){
-  html {
-    font-size: 130% !important; // strikethrough in chrome = inactive style
-  }
-}
 
 </head>
 <body>
