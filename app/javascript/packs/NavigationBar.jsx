@@ -19,7 +19,7 @@ export default class NavigationBar extends React.Component {
     //console.log("I was called. No way..... fucking wizard...");
     this.props.context.setState({
       division: "None",
-      the_fighter: the_fighter
+      the_fighter: the_fighter,
     });
   }
 
@@ -35,7 +35,7 @@ export default class NavigationBar extends React.Component {
                 {/*<a href="#"><img src="https://i.imgur.com/Xs3GP6z.png" style={{width: '65px', marginBottom: '5px'}} /></a>*/}
                 <a style={{color: 'white'}} href="#" onClick={()=>this.changeDivision('Popular')}><Glyphicon glyph="fire" /> MMAmatchups.net</a>
               </Navbar.Brand>
-              <Navbar.Toggle style={{height: '100px'}}/>
+              <Navbar.Toggle/>
             </Navbar.Header>
             <Navbar.Collapse>
               <Nav>
