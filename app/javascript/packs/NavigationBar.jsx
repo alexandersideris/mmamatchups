@@ -29,13 +29,13 @@ export default class NavigationBar extends React.Component {
     if(this.props.current_user == null){
       return (
         <div>
-          <Navbar inverse collapseOnSelect fixedTop className="bs-navbar-collapse" style={{minHeight: '60px'}}>
+          <Navbar inverse collapseOnSelect fixedTop className="bs-navbar-collapse">
             <Navbar.Header>
               <Navbar.Brand>
                 {/*<a href="#"><img src="https://i.imgur.com/Xs3GP6z.png" style={{width: '65px', marginBottom: '5px'}} /></a>*/}
                 <a style={{color: 'white'}} href="#" onClick={()=>this.changeDivision('Popular')}><Glyphicon glyph="fire" /> MMAmatchups.net</a>
               </Navbar.Brand>
-              <Navbar.Toggle />
+              <Navbar.Toggle style={{height: '100px'}}/>
             </Navbar.Header>
             <Navbar.Collapse>
               <Nav>
