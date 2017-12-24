@@ -14,7 +14,11 @@ class Fights extends React.Component {
 
 
   render() {
-
+    var isMobile='false'
+    if (/Android|webOS|iPhone|iPad|BlackBerry|Windows Phone|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent)){
+      isMobile = 'true'
+    }
+    console.log(isMobile);
     var has_voted = this.state.has_voted
     var has_unvoted = this.state.has_unvoted
     var division = this.state.division
@@ -52,7 +56,7 @@ class Fights extends React.Component {
     var context = this;
     return(
       <div>
-        <NavigationBar fighters = { fighters } context = { context } current_user = { c_user }/>
+        <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
         <div style={{marginTop: '100px'}}>
           <div className="container">
             <div className="row">
