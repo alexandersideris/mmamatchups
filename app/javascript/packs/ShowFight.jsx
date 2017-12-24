@@ -67,63 +67,133 @@ export default class ShowFight extends React.Component {
     var fighter_one = this.props.fighter_one
     var fighter_two = this.props.fighter_two
     var upvotes = this.props.upvotes
-    if(this.props.has_voted == 'true'){
-      return (
-        <div style={{ border: 'black', backgroundColor: ''}}>
+    if(this.props.isMobile == 'true'){
+      if(this.props.has_voted == 'true'){
 
-          <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
+        // User is using mobile device and has voted for the fight
+        return (
+          <div style={{ border: 'black', backgroundColor: ''}}>
 
-            <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
-              <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
-              <p style={{fontSize: 25, margin: 10}}>{fighter_one.name}</p>
-              <p style={{fontSize: 20, margin: 10}}>{fighter_one.rank}</p>
-              <p style={{fontSize: 17}}>{fighter_one.fight_record}</p>
+            <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
+
+              <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
+                <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
+                <p style={{fontSize: 35, margin: 10}}>{fighter_one.name}</p>
+                <p style={{fontSize: 28, margin: 10}}>{fighter_one.rank}</p>
+                <p style={{fontSize: 22}}>{fighter_one.fight_record}</p>
+              </div>
+
+              <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
+                <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
+                <p style={{fontSize: 35, margin: 10}}>{fighter_two.name}</p>
+                <p style={{fontSize: 28, margin: 10}}>{fighter_two.rank}</p>
+                <p style={{fontSize: 22}}>{fighter_two.fight_record}</p>
+              </div>
             </div>
 
-            <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
-              <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
-              <p style={{fontSize: 25, margin: 10}}>{fighter_two.name}</p>
-              <p style={{fontSize: 20, margin: 10}}>{fighter_two.rank}</p>
-              <p style={{fontSize: 17}}>{fighter_two.fight_record}</p>
+            <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
+              <p style={{fontSize: 28, marginBottom: 10}}>Upvotes: {upvotes}</p>
+              <Button onClick={()=>this.unlike()} bsStyle="success"  style={{fontSize: 22}} active>You upvoted this fight</Button>
             </div>
+
           </div>
+        );
 
-          <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
-            <p style={{fontSize: 20, marginBottom: 10}}>Upvotes: {upvotes}</p>
-            <Button onClick={()=>this.unlike()} bsStyle="success"  style={{fontSize: 22}} active>You upvoted this fight</Button>
+      }else{
+
+        // User is using on mobile device and has not voted for the fight
+        return (
+          <div style={{ border: 'black', backgroundColor: ''}}>
+
+            <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
+
+              <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
+                <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
+                <p style={{fontSize: 36, margin: 10}}>{fighter_one.name}</p>
+                <p style={{fontSize: 28, margin: 10}}>{fighter_one.rank}</p>
+                <p style={{fontSize: 22, margin: 10}}>{fighter_one.fight_record}</p>
+              </div>
+
+              <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
+                <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
+                <p style={{fontSize: 35, margin: 10}}>{fighter_two.name}</p>
+                <p style={{fontSize: 28, margin: 10}}>{fighter_two.rank}</p>
+                <p style={{fontSize: 22, margin: 10}}>{fighter_two.fight_record}</p>
+              </div>
+            </div>
+
+            <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
+              <p style={{fontSize: 28, marginBottom: 10}}>Upvotes: {upvotes}</p>
+              <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 22}}>Upvote this fight!</Button>
+            </div>
+
           </div>
-
-        </div>
-      );
-
+        );
+      }
     }else{
-      return (
-        <div style={{ border: 'black', backgroundColor: ''}}>
+      if(this.props.has_voted == 'true'){
 
-          <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
+        // User is using Desktop device and has voted for the fight
+        return (
+          <div style={{ border: 'black', backgroundColor: ''}}>
 
-            <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
-              <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
-              <p style={{fontSize: 25, margin: 10}}>{fighter_one.name}</p>
-              <p style={{fontSize: 20, margin: 10}}>{fighter_one.rank}</p>
-              <p style={{fontSize: 17, margin: 10}}>{fighter_one.fight_record}</p>
+            <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
+
+              <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
+                <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
+                <p style={{fontSize: 25, margin: 10}}>{fighter_one.name}</p>
+                <p style={{fontSize: 20, margin: 10}}>{fighter_one.rank}</p>
+                <p style={{fontSize: 17}}>{fighter_one.fight_record}</p>
+              </div>
+
+              <div className="col-lg-6" style={{textAlign: 'center', margin: '10px'}}>
+                <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
+                <p style={{fontSize: 25, margin: 10}}>{fighter_two.name}</p>
+                <p style={{fontSize: 20, margin: 10}}>{fighter_two.rank}</p>
+                <p style={{fontSize: 17}}>{fighter_two.fight_record}</p>
+              </div>
             </div>
 
-            <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
-              <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
-              <p style={{fontSize: 25, margin: 10}}>{fighter_two.name}</p>
-              <p style={{fontSize: 20, margin: 10}}>{fighter_two.rank}</p>
-              <p style={{fontSize: 17, margin: 10}}>{fighter_two.fight_record}</p>
+            <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
+              <p style={{fontSize: 20, marginBottom: 10}}>Upvotes: {upvotes}</p>
+              <Button onClick={()=>this.unlike()} bsStyle="success"  style={{fontSize: 22}} active>You upvoted this fight</Button>
             </div>
-          </div>
 
-          <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
-            <p style={{fontSize: 25, marginBottom: 10}}>Upvotes: {upvotes}</p>
-            <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 22}}>Upvote this fight!</Button>
           </div>
+        );
 
-        </div>
-      );
+      }else{
+
+        // User is using Desktop device and has not voted for the fight
+        return (
+          <div style={{ border: 'black', backgroundColor: ''}}>
+
+            <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
+
+              <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
+                <img responsive='true' src={fighter_one.img_url} style={{backgroundColor: 'gray'}} />
+                <p style={{fontSize: 25, margin: 10}}>{fighter_one.name}</p>
+                <p style={{fontSize: 20, margin: 10}}>{fighter_one.rank}</p>
+                <p style={{fontSize: 17, margin: 10}}>{fighter_one.fight_record}</p>
+              </div>
+
+              <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
+                <img responsive='true' src={fighter_two.img_url} style={{backgroundColor: 'gray'}}/>
+                <p style={{fontSize: 25, margin: 10}}>{fighter_two.name}</p>
+                <p style={{fontSize: 20, margin: 10}}>{fighter_two.rank}</p>
+                <p style={{fontSize: 17, margin: 10}}>{fighter_two.fight_record}</p>
+              </div>
+            </div>
+
+            <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
+              <p style={{fontSize: 25, marginBottom: 10}}>Upvotes: {upvotes}</p>
+              <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 22}}>Upvote this fight!</Button>
+            </div>
+
+          </div>
+        );
+      }
     }
   }
+      
 }

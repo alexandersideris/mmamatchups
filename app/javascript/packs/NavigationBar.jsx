@@ -46,7 +46,7 @@ export default class NavigationBar extends React.Component {
                   {/*<a href="#"><img src="https://i.imgur.com/Xs3GP6z.png" style={{width: '65px', marginBottom: '5px'}} /></a>*/}
                   <a style={{color: 'white', fontSize: 40, marginTop: 20}} href="#" onClick={()=>this.changeDivision('Popular')}><Glyphicon glyph="fire" /> MMAmatchups.net</a>
                 </Navbar.Brand>
-                <Navbar.Toggle style={{height: 100, paddingLeft:100, paddingRight:100}}/>
+                <Navbar.Toggle style={{height: 100, paddingLeft:100, paddingRight:100, backgroundColor: '', borderStyle: 'solid', borderColor: 'white'}}/>
               </Navbar.Header>
               <Navbar.Collapse>
                 <Nav>

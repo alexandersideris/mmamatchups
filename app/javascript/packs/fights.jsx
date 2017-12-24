@@ -18,7 +18,6 @@ class Fights extends React.Component {
     if (/Android|webOS|iPhone|iPad|BlackBerry|Windows Phone|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent)){
       isMobile = 'true'
     }
-    console.log(isMobile);
     var has_voted = this.state.has_voted
     var has_unvoted = this.state.has_unvoted
     var division = this.state.division
@@ -66,6 +65,7 @@ class Fights extends React.Component {
                   {fights.map(function(fight){
                     return(
                       <ShowFight
+                        isMobile={isMobile}
                         context = { context }
                         current_user = {c_user}
                         has_voted = { fight.has_voted }
