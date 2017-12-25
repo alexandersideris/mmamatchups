@@ -26,6 +26,7 @@ export default class NavigationBar extends React.Component {
 
   superfight(){
     this.props.context.setState({
+      division: "None",
       superfights: 'true'
     });
   }

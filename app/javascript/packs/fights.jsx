@@ -57,12 +57,12 @@ class Fights extends React.Component {
     var superfights = this.state.superfights
 
     var title = 'Popular matchups.'
-    if (division == 'None'){
+    if (division == 'None' && superfights!='true'){
       title = 'Popular '+fighters.find(function(e){ return e.id == the_fighter }).name+' matchups.'
       fights = fights.filter(function(e){
         return e.fighter_one_id == the_fighter || e.fighter_two_id == the_fighter;
       })
-    }else if (division != 'Popular'){
+    }else if (division != 'Popular' && superfights!='true'){
       title = 'Popular '+division+' matchups.'
       fights = fights.filter(function(e){
         return e.division == division;
@@ -90,6 +90,8 @@ class Fights extends React.Component {
     //Normal mode
     if(this.state.superfights != 'true'){
       if(isMobile=='true'){
+
+        //User is on mobile and not on Superfights page
         return(
           <div>
             <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
@@ -123,6 +125,8 @@ class Fights extends React.Component {
           </div>
         );
       }else{
+
+        //User is not on mobile and not on Superfights page
         return(
           <div>
             <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
@@ -157,8 +161,10 @@ class Fights extends React.Component {
         );
       }
     }else{
-      // User is on mobile and on Superfights page
+      
       if(isMobile=='true'){
+
+        // User is on mobile and on Superfights page
         return(
           <div>
             <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
@@ -184,6 +190,7 @@ class Fights extends React.Component {
           </div>
         );
       }else{
+
         // User is on Desktop and on Superfights page
         return(
           <div>
