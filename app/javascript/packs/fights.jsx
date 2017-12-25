@@ -171,8 +171,8 @@ class Fights extends React.Component {
             <div style={{marginTop: '100px'}}>
               <div className="container">
                 <div className="row">
-                  <div>
-                    <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
+                  <div style={{minWidth: '1140px'}}>
+                    <h1 style={{fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
                     <div style={{textAlign: 'center'}}>
                       <h2>No superfights have been created yet.</h2>
                       <p style={{fontSize: 25}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
@@ -199,7 +199,7 @@ class Fights extends React.Component {
             <div style={{marginTop: '100px'}}>
               <div className="container">
                 <div className="row">
-                  <div style={{minWidth: '1140px'}}>
+                  <div>
                     <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
                     <div style={{textAlign: 'center'}}>
                       <h3>No superfights has been created yet.</h3>
