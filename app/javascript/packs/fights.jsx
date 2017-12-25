@@ -174,8 +174,26 @@ class Fights extends React.Component {
                 <div className="row">
                   <div>
                     <h1 style={{width: '1000px', display: 'flex', flexWrap: 'nowrap', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
-                    <div>
-                      
+                    <div style={{ border: 'black', backgroundColor: ''}}>
+
+                      <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
+
+                        <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
+                          <p style={{fontSize: 28, margin: 10}}>Hey 1man</p>
+                          <p style={{fontSize: 22, margin: 10}}>Hey 1woman</p>
+                        </div>
+
+                        <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
+                          <p style={{fontSize: 28, margin: 10}}>Hey 2man</p>
+                          <p style={{fontSize: 22, margin: 10}}>Hey 2woman</p>
+                        </div>
+                      </div>
+
+                      <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
+                        <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: 3</p>
+                        <Button ref="button" bsStyle="info" style={{fontSize: 30}}>Upvote this fight!</Button>
+                      </div>
+
                     </div>
                   </div>
 
