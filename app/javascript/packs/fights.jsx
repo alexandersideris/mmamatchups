@@ -174,7 +174,19 @@ class Fights extends React.Component {
                   <div>
                     <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
                     <div>
-                      <h1>Hi</h1>
+                      <div style={{ border: 'black', backgroundColor: ''}}>
+
+                        <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
+
+                        </div>
+
+                        <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
+                          <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: {upvotes}</p>
+                          <Button onClick={()=>this.unlike()} bsStyle="success"  style={{fontSize: 30}} active>You upvoted this fight</Button>
+                        </div>
+
+                      </div>
+
                     </div>
                   </div>
 
