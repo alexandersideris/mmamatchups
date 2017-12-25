@@ -44,7 +44,7 @@ class Fights extends React.Component {
       fights = fights.filter(function(e){
         return e.division == division;
       })
-    }else{
+    }else if (superfights=='true'){
       title = 'Popular superfights.'
     }
 
