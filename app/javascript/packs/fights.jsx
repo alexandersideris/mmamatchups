@@ -173,28 +173,15 @@ class Fights extends React.Component {
               <div className="container">
                 <div className="row">
                   <div>
-                    <h1 style={{width: '1000px', display: 'flex', flexWrap: 'nowrap', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
-                    <div style={{ border: 'black', backgroundColor: ''}}>
-
-                      <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
-
-                        <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
-                          <p style={{fontSize: 28, margin: 10}}>Hey 1man</p>
-                          <p style={{fontSize: 22, margin: 10}}>Hey 1woman</p>
-                        </div>
-
-                        <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
-                          <p style={{fontSize: 28, margin: 10}}>Hey 2man</p>
-                          <p style={{fontSize: 22, margin: 10}}>Hey 2woman</p>
-                        </div>
-                      </div>
-
-                      <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
-                        <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: 3</p>
-                        <Button ref="button" bsStyle="info" style={{fontSize: 30}}>Upvote this fight!</Button>
-                      </div>
-
+                    <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 30 , paddingTop: 50}}>{title}</h1>
+                    <div style={{width: 1140, textAlign: 'center'}}>
+                      <h3>No superfights has been created yet.</h3>
+                      <p style={{fontSize: 16}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
+                      <p style={{fontSize: 16}}>It costs $5/month, because I like money. Also I am broke.</p>
+                      <img responsive='true' src="http://www.timpriceblog.com/wp-content/uploads/2013/04/old-shoes1.png" />
+                      <Button style={{ textAlign: 'center', fontSize: 30}} bsStyle="success" onClick={()=>this.buyButtonPressed()}><Glyphicon glyph='credit-card'/>     Buy now!</Button>
                     </div>
+                    <p style={{width: 1140, textAlign: 'center'}}><b>"You got to do what you got to do, job is job." - Wanderlei Silva</b></p>
                   </div>
 
                 </div>
@@ -213,14 +200,15 @@ class Fights extends React.Component {
               <div className="container">
                 <div className="row">
                   <div>
-                    <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
+                    <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 30 }}>{title}</h1>
                     <div style={{textAlign: 'center'}}>
                       <h3>No superfights has been created yet.</h3>
                       <p style={{fontSize: 16}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
-                      <p style={{fontSize: 16}}>It costs $5/month, because I like money and because I am fucking broke atm.</p>
+                      <p style={{fontSize: 16}}>It costs $5/month, because I like money. Also I am broke.</p>
                       <img responsive='true' src="http://www.timpriceblog.com/wp-content/uploads/2013/04/old-shoes1.png" />
                       <Button style={{ textAlign: 'center', fontSize: 30}} bsStyle="success" onClick={()=>this.buyButtonPressed()}><Glyphicon glyph='credit-card'/>     Buy now!</Button>
                     </div>
+                    <p style={{width: 1140, textAlign: 'center'}}><b>"You got to do what you got to do, job is job." - Wanderlei Silva</b></p>
                   </div>
 
 
