@@ -173,7 +173,7 @@ class Fights extends React.Component {
               <div className="container">
                 <div className="row">
                   <div>
-                    <h1 style={{width: '100%', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
+                    <h1 style={{width: '1000px', display: 'flex', flexWrap: 'nowrap', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
                     <div>
                       
                     </div>
