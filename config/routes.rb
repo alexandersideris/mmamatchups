@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   
   get 'fights/unvote'
 
-  get 'fights/like'
-
-  get 'fights/unlike'
+  get 'fights/subscribe'
 
   resources :fights
 

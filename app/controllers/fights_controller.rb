@@ -19,14 +19,6 @@ class FightsController < ApplicationController
     end
   end
 
-  def like
-    puts 'HEYHEY'
-    @fight = Fight.find(params[:id])
-    @fight.liked_by current_user
-    @fight.save
-    redirect_to '/'
-  end
-
   def vote
     @fight = Fight.find(params[:id])
     @user = User.find(params[:user_id])
@@ -45,10 +37,8 @@ class FightsController < ApplicationController
     redirect_to '/'
   end
 
-  def unlike
-    @fight = Fight.find(params[:id])
-    #@user = User.find(params[:user_id])
-    @fight.unliked_by current_user
+  def subscribe
+    Subscription.create(name: params[:name], user_id: params[:user_id] )
     redirect_to '/'
   end
 

@@ -16,6 +16,29 @@ class Fights extends React.Component {
 
   buyButtonPressed(){
     alert("Sorry this feature is not ready yet. It will be ready really soon!")
+    console.log("lets go")
+    if(this.props.current_user == null){
+      //console.log(this.props.current_user.name+ " liked fight "+this.props.fight)
+      var url = "/fights/subscribe?name="+'undefined'+'&user_id='+'undefined'
+      //console.log(url)
+      fetch(url)
+        .then((response) => {
+          if(response.status==200){
+          }
+        })
+
+    }else{
+      console.log(this.props.current_user)
+      //console.log(this.props.current_user.name+ " liked fight "+this.props.fight)
+      var url = "/fights/subscribe?name="+this.props.current_user.name+'&user_id='+this.props.current_user.id
+      //console.log(url)
+
+      fetch(url)
+        .then((response) => {
+          if(response.status==200){
+          }
+        })
+    }
   }
 
   render() {
@@ -134,8 +157,35 @@ class Fights extends React.Component {
         );
       }
     }else{
-      //Superfights page
-      return(
+      // User is on mobile and on Superfights page
+      if(isMobile=='true'){
+        return(
+          <div>
+            <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
+            <div style={{marginTop: '100px'}}>
+              <div className="container">
+                <div className="row">
+                  <div style={{minWidth: '1140px'}}>
+                    <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
+                    <div style={{textAlign: 'center'}}>
+                      <h2>No superfights have been created yet.</h2>
+                      <p style={{fontSize: 25}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
+                      <p style={{fontSize: 25}}>It costs $5/month, because I like money and because I am fucking broke atm.</p>
+                      <img responsive='true' src="http://www.timpriceblog.com/wp-content/uploads/2013/04/old-shoes1.png" />
+                      <Button style={{ textAlign: 'center', fontSize: 30}} bsStyle="success" onClick={()=>this.buyButtonPressed()}><Glyphicon glyph='credit-card'/>     Buy now!</Button>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        );
+      }else{
+        // User is on Desktop and on Superfights page
+        return(
           <div>
             <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
             <div style={{marginTop: '100px'}}>
@@ -159,6 +209,10 @@ class Fights extends React.Component {
             </div>
           </div>
         );
+
+      }
+      
+      
     }
       
   }
