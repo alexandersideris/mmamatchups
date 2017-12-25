@@ -3,24 +3,26 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import ShowFight from './ShowFight';
 import NavigationBar from './NavigationBar';
+import {Button, Glyphicon} from 'react-bootstrap'
+
 
 class Fights extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {division: 'Popular', the_fighter: '', has_voted: '', has_unvoted: ''};
+    this.state = {division: 'Popular', the_fighter: '', has_voted: '', has_unvoted: '', superfights: 'false'};
     this.render = this.render.bind(this);
+    this.buyButtonPressed = this.buyButtonPressed.bind(this);
   }
 
-
+  buyButtonPressed(){
+    alert("Sorry this feature is not ready yet. It will be ready really soon!")
+  }
 
   render() {
     var isMobile='false'
-    var paddingTop = 0
     if (/Android|webOS|iPhone|iPad|BlackBerry|Windows Phone|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent)){
       isMobile = 'true'
-      paddingTop = 50
     }
-    console.log(paddingTop)
     var has_voted = this.state.has_voted
     var has_unvoted = this.state.has_unvoted
     var division = this.state.division
@@ -29,6 +31,8 @@ class Fights extends React.Component {
     var fighters = this.props.fighters
     var state = this.state
     var c_user = this.props.current_user
+    var superfights = this.state.superfights
+
     var title = 'Popular matchups.'
     if (division == 'None'){
       title = 'Popular '+fighters.find(function(e){ return e.id == the_fighter }).name+' matchups.'
@@ -40,7 +44,10 @@ class Fights extends React.Component {
       fights = fights.filter(function(e){
         return e.division == division;
       })
+    }else{
+      title = 'Popular superfights.'
     }
+
     if(has_voted != ''){
       var f = fights.find(function(e){ return e.id == has_voted; })
       f.upvotes = f.upvotes + 1
@@ -56,73 +63,104 @@ class Fights extends React.Component {
       this.setState({has_unvoted: ''});
     }
     var context = this;
-    if(isMobile=='true'){
-      return(
-        <div>
-          <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
-          <div style={{marginTop: '100px'}}>
-            <div className="container">
-              <div className="row">
-                <div>
-                  <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
+
+    //Normal mode
+    if(this.state.superfights != 'true'){
+      if(isMobile=='true'){
+        return(
+          <div>
+            <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
+            <div style={{marginTop: '100px'}}>
+              <div className="container">
+                <div className="row">
                   <div>
-                    {fights.map(function(fight){
-                      return(
-                        <ShowFight
-                          isMobile={isMobile}
-                          context = { context }
-                          current_user = {c_user}
-                          has_voted = { fight.has_voted }
-                          fight = { fight.id }
-                          fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
-                          fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
-                          upvotes = {fight.upvotes}>
-                        </ShowFight>
-                      );
-                    })}
+                    <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
+                    <div>
+                      {fights.map(function(fight){
+                        return(
+                          <ShowFight
+                            isMobile={isMobile}
+                            context = { context }
+                            current_user = {c_user}
+                            has_voted = { fight.has_voted }
+                            fight = { fight.id }
+                            fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                            fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                            upvotes = {fight.upvotes}>
+                          </ShowFight>
+                        );
+                      })}
+                    </div>
                   </div>
+
                 </div>
-
               </div>
-            </div>
 
+            </div>
           </div>
-        </div>
-      );
+        );
+      }else{
+        return(
+          <div>
+            <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
+            <div style={{marginTop: '100px'}}>
+              <div className="container">
+                <div className="row">
+                  <div>
+                    <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50 }}>{title}</h1>
+                    <div>
+                      {fights.map(function(fight){
+                        return(
+                          <ShowFight
+                            isMobile={isMobile}
+                            context = { context }
+                            current_user = {c_user}
+                            has_voted = { fight.has_voted }
+                            fight = { fight.id }
+                            fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                            fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                            upvotes = {fight.upvotes}>
+                          </ShowFight>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        );
+      }
     }else{
+      //Superfights page
       return(
-        <div>
-          <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
-          <div style={{marginTop: '100px'}}>
-            <div className="container">
-              <div className="row">
-                <div>
-                  <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50 }}>{title}</h1>
-                  <div>
-                    {fights.map(function(fight){
-                      return(
-                        <ShowFight
-                          isMobile={isMobile}
-                          context = { context }
-                          current_user = {c_user}
-                          has_voted = { fight.has_voted }
-                          fight = { fight.id }
-                          fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
-                          fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
-                          upvotes = {fight.upvotes}>
-                        </ShowFight>
-                      );
-                    })}
+          <div>
+            <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
+            <div style={{marginTop: '100px'}}>
+              <div className="container">
+                <div className="row">
+                  <div style={{minWidth: '1140px'}}>
+                    <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
+                    <div style={{textAlign: 'center'}}>
+                      <h3>No superfights has been created yet.</h3>
+                      <p style={{fontSize: 16}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
+                      <p style={{fontSize: 16}}>It costs $5/month, because I like money and because I am fucking broke atm.</p>
+                      <img responsive='true' src="http://www.timpriceblog.com/wp-content/uploads/2013/04/old-shoes1.png" />
+                      <Button style={{ textAlign: 'center', fontSize: 30}} bsStyle="success" onClick={()=>this.buyButtonPressed()}><Glyphicon glyph='credit-card'/>     Buy now!</Button>
+                    </div>
                   </div>
+
+
                 </div>
-
               </div>
-            </div>
 
+            </div>
           </div>
-        </div>
-      );
+        );
     }
+      
   }
 }
 

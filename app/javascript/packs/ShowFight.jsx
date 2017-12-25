@@ -15,9 +15,9 @@ export default class ShowFight extends React.Component {
     if(this.props.current_user == null){
       alert('You need to sign in to vote mate!    :)');
     }else{
-      console.log(this.props.current_user.name+ " liked fight "+this.props.fight)
+      //console.log(this.props.current_user.name+ " liked fight "+this.props.fight)
       var url = "/fights/vote?id="+this.props.fight+'&user_id='+this.props.current_user.id
-      console.log(url)
+      //console.log(url)
       var fight = this.props.fight;
       var ctx = this.props.context
       ctx.setState({
@@ -38,9 +38,9 @@ export default class ShowFight extends React.Component {
   }
 
   unlike(){
-    console.log(this.props.current_user.name+ " unliked fight "+this.props.fight)
+    //console.log(this.props.current_user.name+ " unliked fight "+this.props.fight)
     var url = "/fights/unvote?id="+this.props.fight+'&user_id='+this.props.current_user.id
-    console.log(url)
+    //console.log(url)
     var fight = this.props.fight;
     var ctx = this.props.context
     ctx.setState({
@@ -55,7 +55,7 @@ export default class ShowFight extends React.Component {
             has_voted: fight,
           });
         }
-        console.log(fight)
+        //console.log(fight)
       })
   }
 

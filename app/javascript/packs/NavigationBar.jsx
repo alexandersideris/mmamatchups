@@ -6,20 +6,27 @@ export default class NavigationBar extends React.Component {
     this.render = this.render.bind(this);
     this.changeDivision = this.changeDivision.bind(this);
     this.changeFighter = this.changeFighter.bind(this);
+    this.superfight = this.superfight.bind(this);
   }
 
   changeDivision(division){
-    //console.log(division+" was called.");
     this.props.context.setState({
-      division: division
+      division: division,
+      superfights: 'false'
     });
   }
 
   changeFighter(the_fighter){
-    //console.log("I was called. No way..... fucking wizard...");
     this.props.context.setState({
       division: "None",
       the_fighter: the_fighter,
+      superfights: 'false'
+    });
+  }
+
+  superfight(){
+    this.props.context.setState({
+      superfights: 'true'
     });
   }
 
@@ -27,9 +34,8 @@ export default class NavigationBar extends React.Component {
     
     const fontsMobile = {
         fontSize: 40,
-        margin: 30,
-        paddingTop: 20,
-        paddingBottom: 20,
+        paddingTop: 30,
+        paddingBottom: 30,
     };
 
     var fighters = this.props.fighters;
@@ -48,7 +54,7 @@ export default class NavigationBar extends React.Component {
                 </Navbar.Brand>
                 <Navbar.Toggle style={{height: 100, paddingLeft:100, paddingRight:100, backgroundColor: '', borderStyle: 'solid', borderColor: 'white'}}/>
               </Navbar.Header>
-              <Navbar.Collapse>
+              <Navbar.Collapse style={{maxHeight: '800px'}}>
                 <Nav>
                   <NavDropdown eventKey={3} title="Divisions" id="basic-nav-dropdown" style={fontsMobile}>
                     <MenuItem style={fontsMobile} eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>Flyweight</MenuItem>
@@ -265,6 +271,9 @@ export default class NavigationBar extends React.Component {
 
                   </NavDropdown>
                 </Nav>
+                <Nav>
+                  <MenuItem style={{fontSize: 40, paddingTop: 10, paddingBottom: 10}} eventKey={2} onSelect={()=> self.superfight()}>Superfights</MenuItem>
+                </Nav>
                 <Nav pullRight>
                   <MenuItem style={{fontSize: 30, paddingBottom: 10}} eventKey={1} href="/auth/google_oauth2">   <Glyphicon glyph="log-in" />   Sign In With Google</MenuItem>
                 </Nav>
@@ -285,7 +294,7 @@ export default class NavigationBar extends React.Component {
                 </Navbar.Brand>
                 <Navbar.Toggle style={{height: 100, paddingLeft:100, paddingRight:100, backgroundColor: '', borderStyle: 'solid', borderColor: 'white'}}/>
               </Navbar.Header>
-              <Navbar.Collapse>
+              <Navbar.Collapse style={{maxHeight: '800px'}}>
                 <Nav>
                   <NavDropdown style={fontsMobile} eventKey={3} title="Divisions" id="basic-nav-dropdown">
                     <MenuItem style={fontsMobile} eventKey={3.1} onSelect={()=>this.changeDivision('Flyweight')}>Flyweight</MenuItem>
@@ -501,6 +510,9 @@ export default class NavigationBar extends React.Component {
                     </NavDropdown>
 
                   </NavDropdown>
+                </Nav>
+                <Nav>
+                  <MenuItem style={{fontSize: 40, paddingTop: 10, paddingBottom: 10}} eventKey={2} onSelect={()=> self.superfight()}>Superfights</MenuItem>
                 </Nav>
                 <Nav pullRight>
                   <MenuItem style={{fontSize: 30, paddingBottom: 10}} eventKey={2} href="signout"><Glyphicon glyph="log-out" />   Log Out</MenuItem>
@@ -741,6 +753,9 @@ export default class NavigationBar extends React.Component {
 
                   </NavDropdown>
                 </Nav>
+                <Nav>
+                  <MenuItem eventKey={2} onSelect={()=> self.superfight()}><Glyphicon glyph="fire" />   Superfights</MenuItem>
+                </Nav>
                 <Nav pullRight>
                   <MenuItem eventKey={1} href="/auth/google_oauth2"><Glyphicon glyph="log-in" />   Sign In With Google</MenuItem>
                 </Nav>
@@ -977,6 +992,9 @@ export default class NavigationBar extends React.Component {
                     </NavDropdown>
 
                   </NavDropdown>
+                </Nav>
+                <Nav>
+                  <MenuItem eventKey={2} onSelect={()=> self.superfight()}><Glyphicon glyph="fire" />   Superfights</MenuItem>
                 </Nav>
                 <Nav pullRight>
                   <MenuItem eventKey={2} href="signout"><Glyphicon glyph="log-out" />   Log Out</MenuItem>
