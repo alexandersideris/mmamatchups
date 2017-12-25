@@ -69,6 +69,7 @@ class Fights extends React.Component {
       })
     }else if (superfights=='true'){
       title = 'Popular superfights.'
+      fights = []
     }
 
     if(has_voted != ''){
@@ -174,25 +175,20 @@ class Fights extends React.Component {
                   <div>
                     <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
                     <div>
-                      <div style={{ border: 'black', backgroundColor: ''}}>
-
-                        <div style={{display: 'flex', flexWrap: 'nowrap', backgroundColor: ''}}>
-
-                          <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
-                            <h6>Hi1</h6>
-                          </div>
-
-                          <div className="col-lg-6" style={{textAlign: 'center', margin: '10px', backgroundColor: ''}}>
-                            <h6>Hi1</h6>
-                          </div>
-                        </div>
-
-                        <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
-                          <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: 0</p>
-                          <Button ref="button" bsStyle="info" style={{fontSize: 30}}>Upvote this fight!</Button>
-                        </div>
-
-                      </div>
+                      {fights.map(function(fight){
+                        return(
+                          <ShowFight
+                            isMobile={isMobile}
+                            context = { context }
+                            current_user = {c_user}
+                            has_voted = { fight.has_voted }
+                            fight = { fight.id }
+                            fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                            fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                            upvotes = {fight.upvotes}>
+                          </ShowFight>
+                        );
+                      })}
                     </div>
                   </div>
 
