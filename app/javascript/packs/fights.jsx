@@ -171,16 +171,9 @@ class Fights extends React.Component {
             <div style={{marginTop: '100px'}}>
               <div className="container">
                 <div className="row">
-                  <div style={{minWidth: 1140}}>
-                    <h1 style={{fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
-                    <div style={{textAlign: 'center'}}>
-                      <h2>No superfights have been created yet.</h2>
-                      <p style={{fontSize: 25}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
-                      <p style={{fontSize: 25}}>It costs $5/month, because I like money. Also I am broke.</p>
-                      <p style={{fontSize: 25}}>As a wise man once said, "You do what you got to do, job is job."  - Wanderlei Silva</p>
-                      <img responsive='true' src="http://www.timpriceblog.com/wp-content/uploads/2013/04/old-shoes1.png" />
-                      <Button style={{ textAlign: 'center', fontSize: 30}} bsStyle="success" onClick={()=>this.buyButtonPressed()}><Glyphicon glyph='credit-card'/>     Buy now!</Button>
-                    </div>
+                  <div style={{minWidth: '1140px'}}>
+                    <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
+                    
                   </div>
 
 
@@ -191,7 +184,7 @@ class Fights extends React.Component {
           </div>
         );
       }else{
-
+        
         // User is on Desktop and on Superfights page
         return(
           <div>
