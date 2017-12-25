@@ -171,11 +171,12 @@ class Fights extends React.Component {
             <div style={{marginTop: '100px'}}>
               <div className="container">
                 <div className="row">
-                  <div style={{minWidth: '1140px'}}>
+                  <div>
                     <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
-                    
+                    <div style={{display: 'flex', flexWrap: 'nowrap'}}>
+                      <h3>hi</h3>
+                    </div>
                   </div>
-
 
                 </div>
               </div>
@@ -184,7 +185,7 @@ class Fights extends React.Component {
           </div>
         );
       }else{
-        
+
         // User is on Desktop and on Superfights page
         return(
           <div>
