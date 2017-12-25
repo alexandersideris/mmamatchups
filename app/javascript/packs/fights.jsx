@@ -173,8 +173,21 @@ class Fights extends React.Component {
                 <div className="row">
                   <div>
                     <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
-                    <div style={{display: 'flex', flexWrap: 'nowrap'}}>
-                      <h3>hi</h3>
+                    <div>
+                      {fights.map(function(fight){
+                        return(
+                          <ShowFight
+                            isMobile={isMobile}
+                            context = { context }
+                            current_user = {c_user}
+                            has_voted = { fight.has_voted }
+                            fight = { fight.id }
+                            fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                            fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                            upvotes = {fight.upvotes}>
+                          </ShowFight>
+                        );
+                      })}
                     </div>
                   </div>
 
