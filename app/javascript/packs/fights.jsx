@@ -165,6 +165,7 @@ class Fights extends React.Component {
       if(isMobile=='true'){
 
         // User is on mobile and on Superfights page
+        alert('here')
         return(
           <div>
             <NavigationBar isMobile={isMobile} fighters = { fighters } context = { context } current_user = { c_user }/>
