@@ -171,7 +171,7 @@ class Fights extends React.Component {
             <div style={{marginTop: '100px'}}>
               <div className="container">
                 <div className="row">
-                  <div style={{minWidth: '1140px'}}>
+                  <div style={{minWidth: 1140}}>
                     <h1 style={{fontSize: 35, textAlign: 'center', paddingBottom: 50, paddingTop: 50 }}>{title}</h1>
                     <div style={{textAlign: 'center'}}>
                       <h2>No superfights have been created yet.</h2>
