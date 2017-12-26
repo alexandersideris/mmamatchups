@@ -87,7 +87,7 @@ export default class NavigationBar extends React.Component {
               <Navbar.Collapse style={{maxHeight: '800px'}}>
                 <Nav>
                   <NavDropdown eventKey={3} title="Divisions" id="basic-nav-dropdown" style={fontsMobile}>
-                    <MenuItem style={fontsMobile} eventKey={3.1} onSelect={()=>self.changeDivision('Flyweight')}>Flyweight</MenuItem>
+                    <NavItem style={fontsMobile} eventKey={3.1} onSelect={()=>self.changeDivision('Flyweight')}>Flyweight</NavItem>
                     <MenuItem style={fontsMobile} eventKey={3.2} onSelect={()=>self.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
                     <MenuItem style={fontsMobile} eventKey={3.3} onSelect={()=>self.changeDivision('Featherweight')}>Featherweight</MenuItem>
                     <MenuItem style={fontsMobile} eventKey={3.4} onSelect={()=>self.changeDivision('Lightweight')}>Lightweight</MenuItem>
