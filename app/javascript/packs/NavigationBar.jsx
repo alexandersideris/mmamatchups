@@ -87,19 +87,19 @@ export default class NavigationBar extends React.Component {
               <Navbar.Collapse style={{maxHeight: '800px'}}>
                 <Nav>
                   <NavDropdown eventKey={3} title="Divisions" id="basic-nav-dropdown" style={fontsMobile}>
-                    <MenuItem style={fontsMobile} eventKey={3.1} onSelect={()=>self.changeDivision('Flyweight')}>Flyweight</MenuItem>
-                    <MenuItem style={fontsMobile} eventKey={3.2} onSelect={()=>self.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
-                    <MenuItem style={fontsMobile} eventKey={3.3} onSelect={()=>self.changeDivision('Featherweight')}>Featherweight</MenuItem>
-                    <MenuItem style={fontsMobile} eventKey={3.4} onSelect={()=>self.changeDivision('Lightweight')}>Lightweight</MenuItem>
-                    <MenuItem style={fontsMobile} eventKey={3.5} onSelect={()=>self.changeDivision('Welterweight')}>Welterweight</MenuItem>
-                    <MenuItem style={fontsMobile} eventKey={3.6} onSelect={()=>self.changeDivision('Middleweight')}>Middleweight</MenuItem>
-                    <MenuItem style={fontsMobile} eventKey={3.7} onSelect={()=>self.changeDivision('Light Heavyweight')}>Light Heavyweight</MenuItem>
-                    <MenuItem style={fontsMobile} eventKey={3.8} onSelect={()=>self.changeDivision('Heavyweight')}>Heavyweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.1} onClick={()=>self.changeDivision('Flyweight')}>Flyweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.2} onClick={()=>self.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.3} onClick={()=>self.changeDivision('Featherweight')}>Featherweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.4} onClick={()=>self.changeDivision('Lightweight')}>Lightweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.5} onClick={()=>self.changeDivision('Welterweight')}>Welterweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.6} onClick={()=>self.changeDivision('Middleweight')}>Middleweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.7} onClick={()=>self.changeDivision('Light Heavyweight')}>Light Heavyweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.8} onClick={()=>self.changeDivision('Heavyweight')}>Heavyweight</MenuItem>
                     <MenuItem divider />
-                    <MenuItem style={fontsMobile} eventKey={3.9} onSelect={()=>self.changeDivision("Women\'s Strawweight")}>Women's Strawweight</MenuItem>
-                    <MenuItem style={fontsMobile} eventKey={3.10} onSelect={()=>self.changeDivision('Women\'s Flyweight')}>Women's Flyweight</MenuItem>
-                    <MenuItem style={fontsMobile} eventKey={3.11} onSelect={()=>self.changeDivision('Women\'s Bantamweight')}>Women's Bantamweight</MenuItem>
-                    <MenuItem style={fontsMobile} eventKey={3.12} onSelect={()=>self.changeDivision('Women\'s Featherweight')}>Women's Featherweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.9} onClick={()=>self.changeDivision("Women\'s Strawweight")}>Women's Strawweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.10} onClick={()=>self.changeDivision('Women\'s Flyweight')}>Women's Flyweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.11} onClick={()=>self.changeDivision('Women\'s Bantamweight')}>Women's Bantamweight</MenuItem>
+                    <MenuItem style={fontsMobile} eventKey={3.12} onClick={()=>self.changeDivision('Women\'s Featherweight')}>Women's Featherweight</MenuItem>
                   </NavDropdown>
 
                   <NavDropdown style={fontsMobile} eventKey={4} title="Fighters" id="basic-nav-dropdown">
@@ -569,19 +569,19 @@ export default class NavigationBar extends React.Component {
               <Navbar.Collapse>
                 <Nav>
                   <NavDropdown eventKey={3} title="Divisions" id="basic-nav-dropdown">
-                    <MenuItem eventKey={3.1} onClick={()=>self.changeDivision('Flyweight')}>Flyweight</MenuItem>
-                    <MenuItem eventKey={3.2} onClick={()=>self.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
-                    <MenuItem eventKey={3.3} onClick={()=>self.changeDivision('Featherweight')}>Featherweight</MenuItem>
-                    <MenuItem eventKey={3.4} onClick={()=>self.changeDivision('Lightweight')}>Lightweight</MenuItem>
-                    <MenuItem eventKey={3.5} onClick={()=>self.changeDivision('Welterweight')}>Welterweight</MenuItem>
-                    <MenuItem eventKey={3.6} onClick={()=>self.changeDivision('Middleweight')}>Middleweight</MenuItem>
-                    <MenuItem eventKey={3.7} onClick={()=>self.changeDivision('Light Heavyweight')}>Light Heavyweight</MenuItem>
-                    <MenuItem eventKey={3.8} onClick={()=>self.changeDivision('Heavyweight')}>Heavyweight</MenuItem>
+                    <MenuItem eventKey={3.1} onSelect={()=>self.changeDivision('Flyweight')}>Flyweight</MenuItem>
+                    <MenuItem eventKey={3.2} onSelect={()=>self.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
+                    <MenuItem eventKey={3.3} onSelect={()=>self.changeDivision('Featherweight')}>Featherweight</MenuItem>
+                    <MenuItem eventKey={3.4} onSelect={()=>self.changeDivision('Lightweight')}>Lightweight</MenuItem>
+                    <MenuItem eventKey={3.5} onSelect={()=>self.changeDivision('Welterweight')}>Welterweight</MenuItem>
+                    <MenuItem eventKey={3.6} onSelect={()=>self.changeDivision('Middleweight')}>Middleweight</MenuItem>
+                    <MenuItem eventKey={3.7} onSelect={()=>self.changeDivision('Light Heavyweight')}>Light Heavyweight</MenuItem>
+                    <MenuItem eventKey={3.8} onSelect={()=>self.changeDivision('Heavyweight')}>Heavyweight</MenuItem>
                     <MenuItem divider />
-                    <MenuItem eventKey={3.9} onClick={()=>self.changeDivision("Women\'s Strawweight")}>Women's Strawweight</MenuItem>
-                    <MenuItem eventKey={3.10} onClick={()=>self.changeDivision('Women\'s Flyweight')}>Women's Flyweight</MenuItem>
-                    <MenuItem eventKey={3.11} onClick={()=>self.changeDivision('Women\'s Bantamweight')}>Women's Bantamweight</MenuItem>
-                    <MenuItem eventKey={3.12} onClick={()=>self.changeDivision('Women\'s Featherweight')}>Women's Featherweight</MenuItem>
+                    <MenuItem eventKey={3.9} onSelect={()=>self.changeDivision("Women\'s Strawweight")}>Women's Strawweight</MenuItem>
+                    <MenuItem eventKey={3.10} onSelect={()=>self.changeDivision('Women\'s Flyweight')}>Women's Flyweight</MenuItem>
+                    <MenuItem eventKey={3.11} onSelect={()=>self.changeDivision('Women\'s Bantamweight')}>Women's Bantamweight</MenuItem>
+                    <MenuItem eventKey={3.12} onSelect={()=>self.changeDivision('Women\'s Featherweight')}>Women's Featherweight</MenuItem>
                   </NavDropdown>
 
                   <NavDropdown eventKey={4} title="Fighters" id="basic-nav-dropdown">
