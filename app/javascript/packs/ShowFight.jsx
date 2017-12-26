@@ -67,6 +67,13 @@ export default class ShowFight extends React.Component {
     var fighter_one = this.props.fighter_one
     var fighter_two = this.props.fighter_two
     var upvotes = this.props.upvotes
+    var str = ''
+
+
+    if(this.props.division == 'Superfight'){
+      str = "Superfight"
+    }
+
     if(this.props.isMobile == 'true'){
       if(this.props.has_voted == 'true'){
 
@@ -92,6 +99,7 @@ export default class ShowFight extends React.Component {
             </div>
 
             <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
+              <p style={{fontSize: 30, marginBottom: 10, color: 'red'}}>{str}</p>
               <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: {upvotes}</p>
               <Button onClick={()=>this.unlike()} bsStyle="success"  style={{fontSize: 30}} active>You upvoted this fight</Button>
             </div>
@@ -123,6 +131,7 @@ export default class ShowFight extends React.Component {
             </div>
 
             <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
+              <p style={{fontSize: 30, marginBottom: 10, color: 'red'}}>{str}</p>
               <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: {upvotes}</p>
               <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 30}}>Upvote this fight!</Button>
             </div>
@@ -155,6 +164,7 @@ export default class ShowFight extends React.Component {
             </div>
 
             <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
+              <p style={{fontSize: 30, marginBottom: 10, color: 'red'}}>{str}</p>
               <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: {upvotes}</p>
               <Button onClick={()=>this.unlike()} bsStyle="success"  style={{fontSize: 22}} active>You upvoted this fight</Button>
             </div>
@@ -186,6 +196,7 @@ export default class ShowFight extends React.Component {
             </div>
 
             <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
+              <p style={{fontSize: 30, marginBottom: 10, color: 'red'}}>{str}</p>
               <p style={{fontSize: 25, marginBottom: 10}}>Upvotes: {upvotes}</p>
               <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 22}}>Upvote this fight!</Button>
             </div>

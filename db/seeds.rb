@@ -50,9 +50,9 @@ def createFighter(division, rank, name, url, rank_number)
 	str2 = '" alt'
 
 	puts photo_url.to_s[/#{str1}(.*?)#{str2}/m, 1].to_s
-  img_url = 'http://'+photo_url.to_s[/#{str1}(.*?)#{str2}/m, 1].to_s
+  	img_url = 'http://'+photo_url.to_s[/#{str1}(.*?)#{str2}/m, 1].to_s
 
-  fighter_details = parsed_content_two.css('div#content').css('.content-inner').css('div#fighter-details').css('div#fighter-overlay')
+  	fighter_details = parsed_content_two.css('div#content').css('.content-inner').css('div#fighter-details').css('div#fighter-overlay')
 
 	# Fighter's record
 
@@ -107,371 +107,93 @@ def createFighter(division, rank, name, url, rank_number)
 
 end
 
+def createTheFights(division_text, division)
+	$i = 0
+	while $i < 16  do
+		j=1
+		while j < 9 do
+			if $i + j < 16
+				f = Fight.where("fighter_one_id = "+division[$i].id.to_s + " and fighter_two_id = " + division[$i+j].id.to_s + "or fighter_one_id = "+division[$i+j].id.to_s + "and fighter_two_id = " + division[$i].id.to_s).first
+				#puts 'f: ' + f.to_s
+				if f != nil
+					Fight.create(division: division_text, upvotes: f.upvotes, fighter_one_id: division[$i].id, fighter_two_id: division[$i+j].id)
+					Fight.destroy(f.id)
+				else
+					Fight.create(division: division_text, upvotes: 0, fighter_one_id: division[$i].id, fighter_two_id: division[$i+j].id)					
+				end
+				
+			end
+			j += 1
+		end
+   		$i +=1
+	end
+
+end
+
+def createTheSuperFight(champion_one, champion_two)
+	f = Fight.where("fighter_one_id = "+champion_one.id.to_s + " and fighter_two_id = " + champion_two.id.to_s + "or fighter_one_id = "+champion_two.id.to_s + "and fighter_two_id = " + champion_one.id.to_s).first
+
+	if f != nil
+		Fight.create(division: 'Superfight', upvotes: f.upvotes, fighter_one_id: champion_one.id, fighter_two_id: champion_two.id)
+		Fight.destroy(f.id)
+	else
+		Fight.create(division: "Superfight", upvotes: 0, fighter_one_id: champion_one.id, fighter_two_id: champion_two.id)					
+	end
+
+
+end
+
 def createFights
 	puts 'Flyweights:' + $flyweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: 'Flyweight', upvotes: 0, fighter_one_id: $flyweights[$i].id, fighter_two_id: $flyweights[$i+8].id)
-		end
-   	$i +=1
-	end
+	createTheFights('Flyweight', $flyweights)
+	createTheSuperFight($flyweights[0], $bantamweights[0])
 
 	puts 'Bantamweights:' + $bantamweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: 'Bantamweight', upvotes: 0, fighter_one_id: $bantamweights[$i].id, fighter_two_id: $bantamweights[$i+8].id)
-		end
-   	$i +=1
-	end
+	createTheFights('Bantamweight', $bantamweights)
+	createTheSuperFight($bantamweights[0], $featherweights[0])
+
 
 	puts 'Featherweights:' + $featherweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: 'Featherweight', upvotes: 0, fighter_one_id: $featherweights[$i].id, fighter_two_id: $featherweights[$i+8].id)
-		end
-   	$i +=1
-	end
+	createTheFights('Featherweight', $featherweights)
+	createTheSuperFight($featherweights[0], $lightweights[0])
+
 
 	puts 'Lightweights:' + $lightweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: 'Lightweight', upvotes: 0, fighter_one_id: $lightweights[$i].id, fighter_two_id: $lightweights[$i+8].id)
-		end
-   	$i +=1
-	end
+	createTheFights('Lightweight', $lightweights)
+	createTheSuperFight($lightweights[0], $welterweights[0])
 
 	puts 'Welterweights:' + $welterweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: 'Welterweight', upvotes: 0, fighter_one_id: $welterweights[$i].id, fighter_two_id: $welterweights[$i+8].id)
-		end
-   	$i +=1
-	end
+	createTheFights('Welterweight', $welterweights)
+	createTheSuperFight($welterweights[0], $middleweights[0])
 
 	puts 'Middleweights:' + $middleweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: 'Middleweight', upvotes: 0, fighter_one_id: $middleweights[$i].id, fighter_two_id: $middleweights[$i+8].id)
-		end
-   	$i +=1
-	end
+	createTheFights('Middleweight', $middleweights)
+	createTheSuperFight($middleweights[0], $lightheavyweights[0])
 
 	puts 'Light Heavyweights:' + $lightheavyweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: 'Light Heavyweight', upvotes: 0, fighter_one_id: $lightheavyweights[$i].id, fighter_two_id: $lightheavyweights[$i+8].id)
-		end
-   	$i +=1
-	end
+	createTheFights('Light Heavyweight', $lightheavyweights)
+	createTheSuperFight($lightheavyweights[0], $heavyweights[0])
 
 	puts 'Heavyweights:' + $heavyweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: 'Heavyweight', upvotes: 0, fighter_one_id: $heavyweights[$i].id, fighter_two_id: $heavyweights[$i+8].id)
-		end
-   	$i +=1
-	end
+	createTheFights('Heavyweight', $heavyweights)
 
 	# WOMEN
 
 	puts 'Women Strawweights:' + $womenstrawweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: "Women's Strawweight", upvotes: 0, fighter_one_id: $womenstrawweights[$i].id, fighter_two_id: $womenstrawweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: "Women's Strawweight", upvotes: 0, fighter_one_id: $womenstrawweights[$i].id, fighter_two_id: $womenstrawweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: "Women's Strawweight", upvotes: 0, fighter_one_id: $womenstrawweights[$i].id, fighter_two_id: $womenstrawweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: "Women's Strawweight", upvotes: 0, fighter_one_id: $womenstrawweights[$i].id, fighter_two_id: $womenstrawweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: "Women's Strawweight", upvotes: 0, fighter_one_id: $womenstrawweights[$i].id, fighter_two_id: $womenstrawweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: "Women's Strawweight", upvotes: 0, fighter_one_id: $womenstrawweights[$i].id, fighter_two_id: $womenstrawweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: "Women's Strawweight", upvotes: 0, fighter_one_id: $womenstrawweights[$i].id, fighter_two_id: $womenstrawweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: "Women's Strawweight", upvotes: 0, fighter_one_id: $womenstrawweights[$i].id, fighter_two_id: $womenstrawweights[$i+8].id)
-		end
-   	$i +=1
-	end
+	createTheFights("Women's Strawweight", $womenstrawweights)
+	createTheSuperFight($womenstrawweights[0], $womenflyweights[0])
 
 
 	puts 'Women Flyweights:' + $womenflyweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: "Women's Flyweight", upvotes: 0, fighter_one_id: $womenflyweights[$i].id, fighter_two_id: $womenflyweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: "Women's Flyweight", upvotes: 0, fighter_one_id: $womenflyweights[$i].id, fighter_two_id: $womenflyweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: "Women's Flyweight", upvotes: 0, fighter_one_id: $womenflyweights[$i].id, fighter_two_id: $womenflyweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: "Women's Flyweight", upvotes: 0, fighter_one_id: $womenflyweights[$i].id, fighter_two_id: $womenflyweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: "Women's Flyweight", upvotes: 0, fighter_one_id: $womenflyweights[$i].id, fighter_two_id: $womenflyweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: "Women's Flyweight", upvotes: 0, fighter_one_id: $womenflyweights[$i].id, fighter_two_id: $womenflyweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: "Women's Flyweight", upvotes: 0, fighter_one_id: $womenflyweights[$i].id, fighter_two_id: $womenflyweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: "Women's Flyweight", upvotes: 0, fighter_one_id: $womenflyweights[$i].id, fighter_two_id: $womenflyweights[$i+8].id)
-		end
-   	$i +=1
-	end
+	createTheFights("Women's Flyweight", $womenflyweights)
+	createTheSuperFight($womenflyweights[0], $womenbantamweights[0])
 
 
 	puts "Women's Bantamweights:" + $womenbantamweights.to_s
-	$i = 0
-	while $i < 16  do
-		if $i + 1 < 16
-			Fight.create(division: "Women's Bantamweight", upvotes: 0, fighter_one_id: $womenbantamweights[$i].id, fighter_two_id: $womenbantamweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: "Women's Bantamweight", upvotes: 0, fighter_one_id: $womenbantamweights[$i].id, fighter_two_id: $womenbantamweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: "Women's Bantamweight", upvotes: 0, fighter_one_id: $womenbantamweights[$i].id, fighter_two_id: $womenbantamweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: "Women's Bantamweight", upvotes: 0, fighter_one_id: $womenbantamweights[$i].id, fighter_two_id: $womenbantamweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: "Women's Bantamweight", upvotes: 0, fighter_one_id: $womenbantamweights[$i].id, fighter_two_id: $womenbantamweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: "Women's Bantamweight", upvotes: 0, fighter_one_id: $womenbantamweights[$i].id, fighter_two_id: $womenbantamweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: "Women's Bantamweight", upvotes: 0, fighter_one_id: $womenbantamweights[$i].id, fighter_two_id: $womenbantamweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: "Women's Bantamweight", upvotes: 0, fighter_one_id: $womenbantamweights[$i].id, fighter_two_id: $womenbantamweights[$i+8].id)
-		end
-   	$i +=1
-	end
-
+	createTheFights("Women's Bantamweight", $womenbantamweights)
 
 	puts "Women's Featherweights:" + $womenfeatherweights.to_s
-	$i = 0
-	while $i < $womenfeatherweights.length  do
-		if $i + 1 < 16
-			Fight.create(division: "Women's Featherweight", upvotes: 0, fighter_one_id: $womenfeatherweights[$i].id, fighter_two_id: $womenfeatherweights[$i+1].id)
-		end
-		if $i + 2 < 16
-			Fight.create(division: "Women's Featherweight", upvotes: 0, fighter_one_id: $womenfeatherweights[$i].id, fighter_two_id: $womenfeatherweights[$i+2].id)
-		end
-		if $i + 3 < 16
-			Fight.create(division: "Women's Featherweight", upvotes: 0, fighter_one_id: $womenfeatherweights[$i].id, fighter_two_id: $womenfeatherweights[$i+3].id)
-		end
-		if $i + 4 < 16
-			Fight.create(division: "Women's Featherweight", upvotes: 0, fighter_one_id: $womenfeatherweights[$i].id, fighter_two_id: $womenfeatherweights[$i+4].id)
-		end
-		if $i + 5 < 16
-			Fight.create(division: "Women's Featherweight", upvotes: 0, fighter_one_id: $womenfeatherweights[$i].id, fighter_two_id: $womenfeatherweights[$i+5].id)
-		end
-		if $i + 6 < 16
-			Fight.create(division: "Women's Featherweight", upvotes: 0, fighter_one_id: $womenfeatherweights[$i].id, fighter_two_id: $womenfeatherweights[$i+6].id)
-		end
-		if $i + 7 < 16
-			Fight.create(division: "Women's Featherweight", upvotes: 0, fighter_one_id: $womenfeatherweights[$i].id, fighter_two_id: $womenfeatherweights[$i+7].id)
-		end
-		if $i + 8 < 16
-			Fight.create(division: "Women's Featherweight", upvotes: 0, fighter_one_id: $womenfeatherweights[$i].id, fighter_two_id: $womenfeatherweights[$i+8].id)
-		end
-   	$i +=1
-	end
+		
 
 
 end
@@ -541,7 +263,7 @@ unranked_fighters.each{|f|
 	# Delete all their fights
 	fights = Fight.where("fighter_one_id = '"+f.id+"' OR fighter_two_id = '"+f.id+"'")
 	fight.each{|fi|
-		fi.destroy
+		Fight.destroy(fi.id)
 	}
-	f.destroy
+	Fighter.destroy(f.id)
 }

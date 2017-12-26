@@ -69,7 +69,9 @@ class Fights extends React.Component {
       })
     }else if (superfights=='true'){
       title = 'Popular superfights.'
-      fights = []
+      fights = fights.filter(function(e){
+        return e.division == 'Superfight';
+      })
     }
 
     if(has_voted != ''){
@@ -105,6 +107,7 @@ class Fights extends React.Component {
                       {fights.map(function(fight){
                         return(
                           <ShowFight
+                            division = {fight.division}
                             isMobile={isMobile}
                             context = { context }
                             current_user = {c_user}
@@ -140,6 +143,7 @@ class Fights extends React.Component {
                       {fights.map(function(fight){
                         return(
                           <ShowFight
+                            division = {fight.division}
                             isMobile={isMobile}
                             context = { context }
                             current_user = {c_user}
@@ -175,7 +179,6 @@ class Fights extends React.Component {
                   <div>
                     <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 30 , paddingTop: 50}}>{title}</h1>
                     <div style={{width: 1140, textAlign: 'center'}}>
-                      <h3>No superfights has been created yet.</h3>
                       <p style={{fontSize: 16}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
                       <p style={{fontSize: 16}}>It costs $5/month, because I like money. Also I am broke.</p>
                       <img responsive='true' src="http://www.timpriceblog.com/wp-content/uploads/2013/04/old-shoes1.png" />
@@ -183,7 +186,23 @@ class Fights extends React.Component {
                     </div>
                     <p style={{width: 1140, textAlign: 'center'}}><b>"You got to do what you got to do, job is job." - Wanderlei Silva</b></p>
                   </div>
-
+                  <div>
+                    {fights.map(function(fight){
+                      return(
+                        <ShowFight
+                          division = {fight.division}
+                          isMobile={isMobile}
+                          context = { context }
+                          current_user = {c_user}
+                          has_voted = { fight.has_voted }
+                          fight = { fight.id }
+                          fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                          fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                          upvotes = {fight.upvotes}>
+                        </ShowFight>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
@@ -202,7 +221,6 @@ class Fights extends React.Component {
                   <div>
                     <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 30 }}>{title}</h1>
                     <div style={{textAlign: 'center'}}>
-                      <h3>No superfights has been created yet.</h3>
                       <p style={{fontSize: 16}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
                       <p style={{fontSize: 16}}>It costs $5/month, because I like money. Also I am broke.</p>
                       <img responsive='true' src="http://www.timpriceblog.com/wp-content/uploads/2013/04/old-shoes1.png" />
@@ -210,7 +228,23 @@ class Fights extends React.Component {
                     </div>
                     <p style={{width: 1140, textAlign: 'center'}}><b>"You got to do what you got to do, job is job." - Wanderlei Silva</b></p>
                   </div>
-
+                  <div>
+                    {fights.map(function(fight){
+                      return(
+                        <ShowFight
+                          division = {fight.division}
+                          isMobile={isMobile}
+                          context = { context }
+                          current_user = {c_user}
+                          has_voted = { fight.has_voted }
+                          fight = { fight.id }
+                          fighter_one = { fighters.find(function(e){ return e.id == fight.fighter_one_id; })}
+                          fighter_two = { fighters.find(function(e){ return e.id == fight.fighter_two_id; })}
+                          upvotes = {fight.upvotes}>
+                        </ShowFight>
+                      );
+                    })}
+                  </div>
 
                 </div>
               </div>
