@@ -7,28 +7,57 @@ export default class NavigationBar extends React.Component {
     this.changeDivision = this.changeDivision.bind(this);
     this.changeFighter = this.changeFighter.bind(this);
     this.superfight = this.superfight.bind(this);
+    this.updateFights = this.updateFights.bind(this);
   }
 
   changeDivision(division){
-    this.props.context.setState({
+    /*this.props.context.setState({
       division: division,
+      the_fighter: '',
       superfights: 'false'
-    });
+    });*/
+    this.updateFights(division, '', 'false')
   }
 
   changeFighter(the_fighter){
-    this.props.context.setState({
+    /*this.props.context.setState({
       division: "None",
       the_fighter: the_fighter,
       superfights: 'false'
-    });
+    });*/
+    this.updateFights("None", the_fighter, 'false')
   }
 
   superfight(){
-    this.props.context.setState({
+    /*this.props.context.setState({
       division: "None",
+      the_fighter: '',
       superfights: 'true'
-    });
+    });*/
+    this.updateFights("None", '', 'true')
+  }
+
+  updateFights(division, the_fighter, superfights){
+    var context = this.props.context
+    var url = '/fights/get_fights?division='+division+'&superfights='+superfights+'&the_fighter='+the_fighter
+
+    fetch(url)
+      .then((response) => {
+        console.log(response)
+        if(response.status==200){
+          return(response.json())
+        }
+      })
+      .then((res) => {
+        //console.log(res)
+        context.setState({
+              fights: res,
+              division: division,
+              the_fighter: the_fighter,
+              superfights: superfights,
+            });
+      })
+
   }
 
   render() {

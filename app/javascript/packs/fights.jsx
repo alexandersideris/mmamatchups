@@ -9,7 +9,7 @@ import {Button, Glyphicon} from 'react-bootstrap'
 class Fights extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {division: 'Popular', the_fighter: '', has_voted: '', has_unvoted: '', superfights: 'false'};
+    this.state = {division: 'Popular', the_fighter: '', has_voted: '', has_unvoted: '', superfights: 'false', fights: this.props.fights};
     this.render = this.render.bind(this);
     this.buyButtonPressed = this.buyButtonPressed.bind(this);
   }
@@ -28,18 +28,21 @@ class Fights extends React.Component {
         })
 
     }else{
-      console.log(this.props.current_user)
+      //console.log(this.props.current_user)
       //console.log(this.props.current_user.name+ " liked fight "+this.props.fight)
       var url = "/fights/subscribe?name="+this.props.current_user.name+'&user_id='+this.props.current_user.id
       //console.log(url)
 
       fetch(url)
-        .then((response) => {
-          if(response.status==200){
-          }
-        })
+      .then((response) => {
+        if(response.status==200){
+          
+        }
+      })
     }
   }
+
+  
 
   render() {
     var isMobile='false'
@@ -50,15 +53,29 @@ class Fights extends React.Component {
     var has_unvoted = this.state.has_unvoted
     var division = this.state.division
     var the_fighter = this.state.the_fighter
-    var fights = this.props.fights
+    var fights = this.state.fights
     var fighters = this.props.fighters
     var state = this.state
     var c_user = this.props.current_user
     var superfights = this.state.superfights
 
-    var title = 'Popular matchups.'
+    //console.log(fights)
+
     if (division == 'None' && superfights!='true'){
       title = 'Popular '+fighters.find(function(e){ return e.id == the_fighter }).name+' matchups.'
+    }else if (division != 'Popular' && superfights!='true'){
+      title = 'Popular '+division+' matchups.'
+    }else if (superfights=='true'){
+      title = 'Popular superfights.'
+    }
+
+    var title = 'Popular matchups.'
+    //fights = await fetch('/fights/get_fights?division='+division+'&superfights='+superfights+'&the_fighter='+the_fighter);
+    //let data = await response.json();
+
+    if (division == 'None' && superfights!='true'){
+      var the_fighter_name = fighters.find(function(e){ return e.id == the_fighter }).name
+      title = 'Popular '+the_fighter_name+' matchups.'
       fights = fights.filter(function(e){
         return e.fighter_one_id == the_fighter || e.fighter_two_id == the_fighter;
       })

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'fights/subscribe'
 
+  get 'fights/get_fights'
+
   resources :fights
 
   root 'fights#index'
