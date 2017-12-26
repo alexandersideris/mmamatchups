@@ -116,8 +116,10 @@ def createTheFights(division_text, division)
 				f = Fight.where("fighter_one_id = "+division[$i].id.to_s + " and fighter_two_id = " + division[$i+j].id.to_s + "or fighter_one_id = "+division[$i+j].id.to_s + "and fighter_two_id = " + division[$i].id.to_s).first
 				#puts 'f: ' + f.to_s
 				if f != nil
-					Fight.create(division: division_text, upvotes: f.upvotes, fighter_one_id: division[$i].id, fighter_two_id: division[$i+j].id)
-					Fight.destroy(f.id)
+					f.fighter_one_id = division[$i].id
+					f.fighter_two_id = division[$i+j].id
+					f.division = division_text
+					f.save
 				else
 					Fight.create(division: division_text, upvotes: 0, fighter_one_id: division[$i].id, fighter_two_id: division[$i+j].id)					
 				end
@@ -134,8 +136,10 @@ def createTheSuperFight(champion_one, champion_two)
 	f = Fight.where("fighter_one_id = "+champion_one.id.to_s + " and fighter_two_id = " + champion_two.id.to_s + "or fighter_one_id = "+champion_two.id.to_s + "and fighter_two_id = " + champion_one.id.to_s).first
 
 	if f != nil
-		Fight.create(division: 'Superfight', upvotes: f.upvotes, fighter_one_id: champion_one.id, fighter_two_id: champion_two.id)
-		Fight.destroy(f.id)
+		f.fighter_one_id = champion_one.id
+		f.fighter_two_id = champion_two.id
+		f.division = 'Superfight'
+		f.save
 	else
 		Fight.create(division: "Superfight", upvotes: 0, fighter_one_id: champion_one.id, fighter_two_id: champion_two.id)					
 	end
