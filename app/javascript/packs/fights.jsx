@@ -42,8 +42,6 @@ class Fights extends React.Component {
     }
   }
 
-  
-
   render() {
     var isMobile='false'
     if (/Android|webOS|iPhone|iPad|BlackBerry|Windows Phone|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent)){
@@ -60,7 +58,7 @@ class Fights extends React.Component {
     var superfights = this.state.superfights
 
     //console.log(fights)
-
+    var title = 'Popular matchups.'
     if (division == 'None' && superfights!='true'){
       title = 'Popular '+fighters.find(function(e){ return e.id == the_fighter }).name+' matchups.'
     }else if (division != 'Popular' && superfights!='true'){
@@ -69,27 +67,6 @@ class Fights extends React.Component {
       title = 'Popular superfights.'
     }
 
-    var title = 'Popular matchups.'
-    //fights = await fetch('/fights/get_fights?division='+division+'&superfights='+superfights+'&the_fighter='+the_fighter);
-    //let data = await response.json();
-
-    if (division == 'None' && superfights!='true'){
-      var the_fighter_name = fighters.find(function(e){ return e.id == the_fighter }).name
-      title = 'Popular '+the_fighter_name+' matchups.'
-      fights = fights.filter(function(e){
-        return e.fighter_one_id == the_fighter || e.fighter_two_id == the_fighter;
-      })
-    }else if (division != 'Popular' && superfights!='true'){
-      title = 'Popular '+division+' matchups.'
-      fights = fights.filter(function(e){
-        return e.division == division;
-      })
-    }else if (superfights=='true'){
-      title = 'Popular superfights.'
-      fights = fights.filter(function(e){
-        return e.division == 'Superfight';
-      })
-    }
 
     if(has_voted != ''){
       var f = fights.find(function(e){ return e.id == has_voted; })

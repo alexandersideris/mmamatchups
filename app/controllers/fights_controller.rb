@@ -26,7 +26,7 @@ class FightsController < ApplicationController
     if params[:division].to_s == 'None' && params[:superfights].to_s!='true'
       @fights = Fight.where("fighter_one_id = "+params[:the_fighter].to_s + " or fighter_two_id = "+params[:the_fighter].to_s).order("upvotes DESC").order("RANDOM()")
     elsif params[:division].to_s != 'Popular' && params[:superfights].to_s != 'true'
-      @fights = Fight.where("division = '"+params[:division].to_s+"'").order("upvotes DESC").order("RANDOM()")
+      @fights = Fight.where(division: +params[:division]).order("upvotes DESC").order("RANDOM()")
     elsif params[:superfights].to_s == 'true'
       @fights = Fight.where("division = "+"'Superfight'").order("upvotes DESC").order("RANDOM()")
     else
