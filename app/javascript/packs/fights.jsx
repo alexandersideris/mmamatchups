@@ -179,8 +179,8 @@ class Fights extends React.Component {
                   <div>
                     <h1 style={{minWidth: '1140px', fontSize: 35, textAlign: 'center', paddingBottom: 30 , paddingTop: 50}}>{title}</h1>
                     <div style={{width: 1140, textAlign: 'center'}}>
-                      <p style={{fontSize: 16}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
-                      <p style={{fontSize: 16}}>It costs $5/month, because I like money. Also I am broke.</p>
+                      <p style={{fontSize: 23}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
+                      <p style={{fontSize: 23}}>It costs $5/month, because I like money. Also I am broke.</p>
                       <img responsive='true' src="http://www.timpriceblog.com/wp-content/uploads/2013/04/old-shoes1.png" />
                       <Button style={{ textAlign: 'center', fontSize: 30}} bsStyle="success" onClick={()=>this.buyButtonPressed()}><Glyphicon glyph='credit-card'/>     Buy now!</Button>
                     </div>
