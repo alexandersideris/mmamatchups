@@ -33,6 +33,20 @@ class FightsController < ApplicationController
       @fights = Fight.order("upvotes DESC").order("RANDOM()").first(50)
     end
     
+    if current_user != nil
+      @fights.each do |fight|
+        if current_user.voted_for? fight
+          fight.has_voted = 'true'
+        else
+          fight.has_voted = 'false'
+        end
+      end
+    else
+      @fights.each do |fight|
+        fight.has_voted = 'false'
+      end
+    end
+    
     render json: @fights
   end
 
