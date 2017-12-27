@@ -17,16 +17,14 @@ class Fights extends React.Component {
 
   buyButtonPressed(){
     alert("Sorry this feature is not ready yet. It will be ready really soon!")
-    console.log("lets go")
     if(this.props.current_user == null){
       //console.log(this.props.current_user.name+ " liked fight "+this.props.fight)
       var url = "/fights/subscribe?name="+'undefined'+'&user_id='+'undefined'
 
       axios.get(url)
       .then(function (response) {
-        console.log(response);
+        //console.log(response);
         if (response.status == 200){
-          alert('success')
         }
       })
       .catch(function (error) {
@@ -41,7 +39,7 @@ class Fights extends React.Component {
 
       axios.get(url)
       .then(function (response) {
-        console.log(response);
+        //console.log(response);
         if (response.status == 200){
           
         }

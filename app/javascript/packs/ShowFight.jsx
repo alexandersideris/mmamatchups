@@ -28,7 +28,7 @@ export default class ShowFight extends React.Component {
 
       axios.get(url)
       .then(function (response) {
-        alert(response);
+        //alert(response);
         
         if (response.status != 200){
           ctx.setState({
@@ -58,7 +58,7 @@ export default class ShowFight extends React.Component {
 
     axios.get(url)
     .then(function (response) {
-      console.log(response);
+      //console.log(response);
       if (response.status != 200){
         ctx.setState({
             has_unvoted: '',
