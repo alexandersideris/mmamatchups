@@ -183,7 +183,7 @@ class Fights extends React.Component {
                     <div style={{width: 1140, textAlign: 'center'}}>
                       <p style={{fontSize: 23}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
                       <p style={{fontSize: 23}}>It costs $5/month, because I like money. Also I am broke.</p>
-                      <img responsive='true' src="http://www.timpriceblog.com/wp-content/uploads/2013/04/old-shoes1.png" />
+                      <img responsive='true' src="https://i.imgur.com/eN3fH2j.png" />
                       <Button style={{ textAlign: 'center', fontSize: 30}} bsStyle="success" onClick={()=>this.buyButtonPressed()}><Glyphicon glyph='credit-card'/>     Buy now!</Button>
                     </div>
                     <p style={{width: 1140, textAlign: 'center'}}><b>"You got to do what you got to do, job is job." - Wanderlei Silva</b></p>
@@ -225,7 +225,7 @@ class Fights extends React.Component {
                     <div style={{textAlign: 'center'}}>
                       <p style={{fontSize: 16}}>Unlock Sean Shelby's shoes and create your own fantasy superfights and fight cards.</p>
                       <p style={{fontSize: 16}}>It costs $5/month, because I like money. Also I am broke.</p>
-                      <img responsive='true' src="http://www.timpriceblog.com/wp-content/uploads/2013/04/old-shoes1.png" />
+                      <img responsive='true' src="https://i.imgur.com/eN3fH2j.png" />
                       <Button style={{ textAlign: 'center', fontSize: 30}} bsStyle="success" onClick={()=>this.buyButtonPressed()}><Glyphicon glyph='credit-card'/>     Buy now!</Button>
                     </div>
                     <p style={{width: 1140, textAlign: 'center'}}><b>"You got to do what you got to do, job is job." - Wanderlei Silva</b></p>

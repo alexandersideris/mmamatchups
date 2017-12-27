@@ -50,7 +50,7 @@ def createFighter(division, rank, name, url, rank_number)
 	str2 = '" alt'
 
 	puts photo_url.to_s[/#{str1}(.*?)#{str2}/m, 1].to_s
-  	img_url = 'http://'+photo_url.to_s[/#{str1}(.*?)#{str2}/m, 1].to_s
+  	img_url = 'https://'+photo_url.to_s[/#{str1}(.*?)#{str2}/m, 1].to_s
 
   	fighter_details = parsed_content_two.css('div#content').css('.content-inner').css('div#fighter-details').css('div#fighter-overlay')
 
