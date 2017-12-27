@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import ShowFight from './ShowFight';
 import NavigationBar from './NavigationBar';
 import {Button, Glyphicon} from 'react-bootstrap'
+import axios from 'axios'
 
 
 class Fights extends React.Component {
@@ -20,12 +21,17 @@ class Fights extends React.Component {
     if(this.props.current_user == null){
       //console.log(this.props.current_user.name+ " liked fight "+this.props.fight)
       var url = "/fights/subscribe?name="+'undefined'+'&user_id='+'undefined'
-      //console.log(url)
-      fetch(url)
-        .then((response) => {
-          if(response.status==200){
-          }
-        })
+
+      axios.get(url)
+      .then(function (response) {
+        console.log(response);
+        if (response.status == 200){
+          alert('success')
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
     }else{
       //console.log(this.props.current_user)
@@ -33,12 +39,16 @@ class Fights extends React.Component {
       var url = "/fights/subscribe?name="+this.props.current_user.name+'&user_id='+this.props.current_user.id
       //console.log(url)
 
-      fetch(url)
-      .then((response) => {
-        if(response.status==200){
+      axios.get(url)
+      .then(function (response) {
+        console.log(response);
+        if (response.status == 200){
           
         }
       })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
   }
 

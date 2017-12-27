@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import {Button, Glyphicon} from 'react-bootstrap'
+import axios from 'axios'
 
 export default class ShowFight extends React.Component {
   constructor(props) {
@@ -25,15 +26,22 @@ export default class ShowFight extends React.Component {
         has_unvoted: '',
       });
 
-      fetch(url)
-        .then((response) => {
-          if(response.status!=200){
-            ctx.setState({
+      axios.get(url)
+      .then(function (response) {
+        alert(response);
+        
+        if (response.status != 200){
+          ctx.setState({
               has_unvoted: fight,
               has_voted: '',
             });
-          }
-        })
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+      
     }
   }
 
@@ -47,16 +55,20 @@ export default class ShowFight extends React.Component {
       has_unvoted: fight,
       has_voted: '',
     });
-    fetch(url)
-      .then((response) => {
-        if(response.status!=200){
-          ctx.setState({
+
+    axios.get(url)
+    .then(function (response) {
+      console.log(response);
+      if (response.status != 200){
+        ctx.setState({
             has_unvoted: '',
             has_voted: fight,
           });
-        }
-        //console.log(fight)
-      })
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render() {
