@@ -16,6 +16,7 @@ export default class NavigationBar extends React.Component {
       the_fighter: '',
       superfights: 'false'
     });*/
+
     this.updateFights(division, '', 'false')
   }
 
@@ -38,12 +39,21 @@ export default class NavigationBar extends React.Component {
   }
 
   updateFights(division, the_fighter, superfights){
+
     var context = this.props.context
     var division_with_backslash = division.replace(/\'/g , "%5C");
     //console.log('HEY ' + division)
     var url = '/fights/get_fights?division='+division+'&superfights='+superfights+'&the_fighter='+the_fighter
-
-    fetch(url)
+    url = "https://jsonplaceholder.typicode.com"
+    console.log(url)
+    var self = this
+    context.setState({
+              fights: [],
+              division: 'Popular',
+              the_fighter: 3,
+              superfights: "false",
+            });
+    /*fetch(url)
       .then((response) => {
         //console.log(response)
         if(response.status==200){
@@ -52,13 +62,14 @@ export default class NavigationBar extends React.Component {
       })
       .then((res) => {
         //console.log(res)
+
         context.setState({
               fights: res,
               division: division,
               the_fighter: the_fighter,
               superfights: superfights,
             });
-      })
+      })*/
 
   }
 
