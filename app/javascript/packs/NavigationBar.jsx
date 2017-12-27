@@ -1,5 +1,7 @@
 import React from 'react';
 import {Nav, Navbar, NavItem, NavDropdown, MenuItem, Glyphicon, DropdownButton} from 'react-bootstrap'
+//import axios from 'axios'
+
 export default class NavigationBar extends React.Component {
   constructor(props) {
     super(props);
@@ -47,12 +49,21 @@ export default class NavigationBar extends React.Component {
     url = "https://jsonplaceholder.typicode.com"
     console.log(url)
     var self = this
-    context.setState({
+    /*context.setState({
               fights: [],
               division: 'Popular',
               the_fighter: 3,
               superfights: "false",
-            });
+            });*/
+
+    // Make a request for a user with a given ID
+  /*axios.get(url)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });*/
     /*fetch(url)
       .then((response) => {
         //console.log(response)
