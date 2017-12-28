@@ -186,7 +186,7 @@ class Fights extends React.Component {
                       <img responsive='true' src="https://i.imgur.com/eN3fH2j.png" />
                       <Button style={{ textAlign: 'center', fontSize: 30}} bsStyle="success" onClick={()=>this.buyButtonPressed()}><Glyphicon glyph='credit-card'/>     Buy now!</Button>
                     </div>
-                    <p style={{width: 1140, textAlign: 'center'}}><b>"You got to do what you got to do, job is job." - Wanderlei Silva</b></p>
+                    <p style={{width: 1140, textAlign: 'center'}}><b>"You need to do what you need to do, job is job." - Wanderlei Silva</b></p>
                   </div>
                   <div>
                     {fights.map(function(fight){
