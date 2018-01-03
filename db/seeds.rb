@@ -265,7 +265,7 @@ createFights()
 unranked_fighters = Fighter.where(is_updated: 'false')
 unranked_fighters.each{|f|
 	# Delete all their fights
-	fights = Fight.where("fighter_one_id = '"+f.id+"' OR fighter_two_id = '"+f.id+"'")
+	fights = Fight.where("fighter_one_id = '"+f.id.to_s+"' OR fighter_two_id = '"+f.id.to_s+"'")
 	fight.each{|fi|
 		Fight.destroy(fi.id)
 	}
