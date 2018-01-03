@@ -13,8 +13,13 @@ export default class ShowFight extends React.Component {
   }
 
   like(){
+    console.log("hey"+this.props.current_user)
     if(this.props.current_user == null){
-      alert('You need to sign in to vote mate!    :)');
+      if(this.props.isMobile == 'true'){
+        alert("You need to sign in to vote. Just tap 'Sign In with Google', it's easy!   :)");
+      }else{
+        alert("You need to sign in to vote. Just click 'Sign In with Google', it's easy!   :)");
+      }
     }else{
       //console.log(this.props.current_user.name+ " liked fight "+this.props.fight)
       var url = "/fights/vote?id="+this.props.fight+'&user_id='+this.props.current_user.id
