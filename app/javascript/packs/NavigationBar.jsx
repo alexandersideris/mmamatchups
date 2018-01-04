@@ -89,7 +89,7 @@ export default class NavigationBar extends React.Component {
               </Navbar.Header>
               <Navbar.Collapse style={{maxHeight: '800px'}}>
                 <Nav>
-                  <NavDropdown eventKey={3} title="Divisions" id="basic-nav-dropdown" style={fontsMobile}>
+                  <NavDropdown eventKey={3} title={<div style={{display: "inline-block"}}><Glyphicon glyph="scale" />  Divisions </div>} id="basic-nav-dropdown" style={fontsMobile}>
                     <MenuItem style={fontsMobile} eventKey={3.1} onClick={()=>self.changeDivision('Flyweight')}>Flyweight</MenuItem>
                     <MenuItem style={fontsMobile} eventKey={3.2} onClick={()=>self.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
                     <MenuItem style={fontsMobile} eventKey={3.3} onClick={()=>self.changeDivision('Featherweight')}>Featherweight</MenuItem>
@@ -105,7 +105,7 @@ export default class NavigationBar extends React.Component {
                     <MenuItem style={fontsMobile} eventKey={3.12} onClick={()=>self.changeDivision('Women\'s Featherweight')}>Women's Featherweight</MenuItem>
                   </NavDropdown>
 
-                  <NavDropdown style={fontsMobile} eventKey={4} title="Fighters" id="basic-nav-dropdown">
+                  <NavDropdown style={fontsMobile} eventKey={4} title={<div style={{display: "inline-block"}}><Glyphicon glyph="flash" />  Fighters </div>} id="basic-nav-dropdown">
                     <NavDropdown style={fontsMobile} eventKey={3} title="Flyweights" id="basic-nav-dropdown">
                       {fighters.filter(function(e){
                         return e.division == 'Flyweight';
@@ -305,13 +305,13 @@ export default class NavigationBar extends React.Component {
                   </NavDropdown>
                 </Nav>
                 <Nav>
-                  <MenuItem style={{fontSize: 40, paddingTop: 10, paddingBottom: 10}} eventKey={2} onSelect={()=> self.superfight()}>Superfights</MenuItem>
+                  <MenuItem style={{fontSize: 40, paddingTop: 10, paddingBottom: 20}} eventKey={2} onSelect={()=> self.superfight()}><Glyphicon glyph="fire" />  Superfights</MenuItem>
                 </Nav>
                 <Nav>
-                  <MenuItem target="_blank" style={{fontSize: 40, paddingTop: 10, paddingBottom: 10}} href="http://www.mcgregornextfight.com" style={{color: 'gray'}} eventKey={2}><Glyphicon glyph="star" />  Conor McGregor</MenuItem>
+                  <MenuItem target="_blank" style={{fontSize: 40, paddingTop: 20, paddingBottom: 25}} href="http://www.mcgregornextfight.com" eventKey={2}><Glyphicon glyph="star" />  Conor McGregor</MenuItem>
                 </Nav>
                 <Nav pullRight>
-                  <MenuItem style={{fontSize: 30, paddingBottom: 10}} eventKey={1} href="/auth/google_oauth2">   <Glyphicon glyph="log-in" />   Sign In With Google</MenuItem>
+                  <MenuItem style={{fontSize: 30, paddingBottom: 13,}} eventKey={1} href="/auth/google_oauth2">   <Glyphicon glyph="log-in" />   Sign In With Google</MenuItem>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
@@ -332,7 +332,7 @@ export default class NavigationBar extends React.Component {
               </Navbar.Header>
               <Navbar.Collapse style={{maxHeight: '800px'}}>
                 <Nav>
-                  <NavDropdown style={fontsMobile} eventKey={3} title="Divisions" id="basic-nav-dropdown">
+                  <NavDropdown style={fontsMobile} eventKey={3} title={<div style={{display: "inline-block"}}><Glyphicon glyph="scale" />  Divisions </div>} id="basic-nav-dropdown">
                     <MenuItem style={fontsMobile} eventKey={3.1} onSelect={()=>self.changeDivision('Flyweight')}>Flyweight</MenuItem>
                     <MenuItem style={fontsMobile} eventKey={3.2} onSelect={()=>self.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
                     <MenuItem style={fontsMobile} eventKey={3.3} onSelect={()=>self.changeDivision('Featherweight')}>Featherweight</MenuItem>
@@ -348,7 +348,7 @@ export default class NavigationBar extends React.Component {
                     <MenuItem style={fontsMobile} eventKey={3.12} onSelect={()=>self.changeDivision('Women\'s Featherweight')}>Women's Featherweight</MenuItem>
                   </NavDropdown>
 
-                  <NavDropdown style={fontsMobile} eventKey={4} title="Fighters" id="basic-nav-dropdown">
+                  <NavDropdown style={fontsMobile} eventKey={4} title={<div style={{display: "inline-block"}}><Glyphicon glyph="flash" />  Fighters </div>} id="basic-nav-dropdown">
                     <NavDropdown style={fontsMobile} eventKey={3} title="Flyweights" id="basic-nav-dropdown">
                       {fighters.filter(function(e){
                         return e.division == 'Flyweight';
@@ -548,13 +548,13 @@ export default class NavigationBar extends React.Component {
                   </NavDropdown>
                 </Nav>
                 <Nav>
-                  <MenuItem style={{fontSize: 40, paddingTop: 10, paddingBottom: 10}} eventKey={2} onSelect={()=> self.superfight()}>Superfights</MenuItem>
+                  <MenuItem style={{fontSize: 40, paddingTop: 10, paddingBottom: 20}} eventKey={2} onSelect={()=> self.superfight()}><Glyphicon glyph="fire" />  Superfights</MenuItem>
                 </Nav>
                 <Nav>
-                  <MenuItem target="_blank" style={{fontSize: 40, paddingTop: 10, paddingBottom: 10}} href="http://www.mcgregornextfight.com" style={{color: 'gray'}} eventKey={2}><Glyphicon glyph="star" />  Conor McGregor</MenuItem>
+                  <MenuItem target="_blank" style={{fontSize: 40, paddingTop: 20, paddingBottom: 25}} href="http://www.mcgregornextfight.com" eventKey={2}><Glyphicon glyph="star" />  Conor McGregor</MenuItem>
                 </Nav>
                 <Nav pullRight>
-                  <MenuItem style={{fontSize: 30, paddingBottom: 10}} eventKey={2} href="signout"><Glyphicon glyph="log-out" />   Log Out</MenuItem>
+                  <MenuItem style={{fontSize: 30, paddingBottom: 13}} eventKey={2} href="signout"><Glyphicon glyph="log-out" />   Log Out</MenuItem>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
@@ -566,6 +566,7 @@ export default class NavigationBar extends React.Component {
 
         // User is using Desktop and is not logged in
         return (
+
           <div>
             <Navbar inverse collapseOnSelect fixedTop className="bs-navbar-collapse">
               <Navbar.Header>
@@ -577,7 +578,7 @@ export default class NavigationBar extends React.Component {
               </Navbar.Header>
               <Navbar.Collapse>
                 <Nav>
-                  <NavDropdown eventKey={3} title="Divisions" id="basic-nav-dropdown">
+                  <NavDropdown eventKey={3} style={{fontSize: 14}} title={<div style={{display: "inline-block"}}><Glyphicon glyph="scale" />  Divisions </div>} id="basic-nav-dropdown">
                     <MenuItem eventKey={3.1} onSelect={()=>self.changeDivision('Flyweight')}>Flyweight</MenuItem>
                     <MenuItem eventKey={3.2} onSelect={()=>self.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
                     <MenuItem eventKey={3.3} onSelect={()=>self.changeDivision('Featherweight')}>Featherweight</MenuItem>
@@ -593,7 +594,7 @@ export default class NavigationBar extends React.Component {
                     <MenuItem eventKey={3.12} onSelect={()=>self.changeDivision('Women\'s Featherweight')}>Women's Featherweight</MenuItem>
                   </NavDropdown>
 
-                  <NavDropdown eventKey={4} title="Fighters" id="basic-nav-dropdown">
+                  <NavDropdown eventKey={4} title={<div style={{display: "inline-block"}}><Glyphicon glyph="flash" />  Fighters </div>} id="basic-nav-dropdown">
                     <NavDropdown eventKey={3} title="Flyweights" id="basic-nav-dropdown">
                       {fighters.filter(function(e){
                         return e.division == 'Flyweight';
@@ -801,6 +802,7 @@ export default class NavigationBar extends React.Component {
                 <Nav pullRight>
                   <MenuItem eventKey={1} href="/auth/google_oauth2"><Glyphicon glyph="log-in" />   Sign In With Google</MenuItem>
                 </Nav>
+
               </Navbar.Collapse>
             </Navbar>
           </div>
@@ -820,7 +822,7 @@ export default class NavigationBar extends React.Component {
               </Navbar.Header>
               <Navbar.Collapse>
                 <Nav>
-                  <NavDropdown  eventKey={3} title="Divisions" id="basic-nav-dropdown">
+                  <NavDropdown  eventKey={3} title={<div style={{display: "inline-block"}}><Glyphicon glyph="scale" />  Divisions </div>} id="basic-nav-dropdown">
                     <MenuItem  eventKey={3.1} onSelect={()=>self.changeDivision('Flyweight')}>Flyweight</MenuItem>
                     <MenuItem  eventKey={3.2} onSelect={()=>self.changeDivision('Bantamweight')}>Bantamweight</MenuItem>
                     <MenuItem  eventKey={3.3} onSelect={()=>self.changeDivision('Featherweight')}>Featherweight</MenuItem>
@@ -836,7 +838,7 @@ export default class NavigationBar extends React.Component {
                     <MenuItem  eventKey={3.12} onSelect={()=>self.changeDivision('Women\'s Featherweight')}>Women's Featherweight</MenuItem>
                   </NavDropdown>
 
-                  <NavDropdown  eventKey={4} title="Fighters" id="basic-nav-dropdown">
+                  <NavDropdown  eventKey={4} title={<div style={{display: "inline-block"}}><Glyphicon glyph="flash" />  Fighters </div>} id="basic-nav-dropdown">
                     <NavDropdown  eventKey={3} title="Flyweights" id="basic-nav-dropdown">
                       {fighters.filter(function(e){
                         return e.division == 'Flyweight';
