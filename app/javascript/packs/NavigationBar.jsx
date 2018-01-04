@@ -307,6 +307,9 @@ export default class NavigationBar extends React.Component {
                 <Nav>
                   <MenuItem style={{fontSize: 40, paddingTop: 10, paddingBottom: 10}} eventKey={2} onSelect={()=> self.superfight()}>Superfights</MenuItem>
                 </Nav>
+                <Nav>
+                  <MenuItem target="_blank" style={{fontSize: 40, paddingTop: 10, paddingBottom: 10}} href="http://www.mcgregornextfight.com" style={{color: 'gray'}} eventKey={2}><Glyphicon glyph="star" />  Conor McGregor</MenuItem>
+                </Nav>
                 <Nav pullRight>
                   <MenuItem style={{fontSize: 30, paddingBottom: 10}} eventKey={1} href="/auth/google_oauth2">   <Glyphicon glyph="log-in" />   Sign In With Google</MenuItem>
                 </Nav>
@@ -546,6 +549,9 @@ export default class NavigationBar extends React.Component {
                 </Nav>
                 <Nav>
                   <MenuItem style={{fontSize: 40, paddingTop: 10, paddingBottom: 10}} eventKey={2} onSelect={()=> self.superfight()}>Superfights</MenuItem>
+                </Nav>
+                <Nav>
+                  <MenuItem target="_blank" style={{fontSize: 40, paddingTop: 10, paddingBottom: 10}} href="http://www.mcgregornextfight.com" style={{color: 'gray'}} eventKey={2}><Glyphicon glyph="star" />  Conor McGregor</MenuItem>
                 </Nav>
                 <Nav pullRight>
                   <MenuItem style={{fontSize: 30, paddingBottom: 10}} eventKey={2} href="signout"><Glyphicon glyph="log-out" />   Log Out</MenuItem>
@@ -789,6 +795,9 @@ export default class NavigationBar extends React.Component {
                 <Nav>
                   <MenuItem eventKey={2} onSelect={()=> self.superfight()}><Glyphicon glyph="fire" />   Superfights</MenuItem>
                 </Nav>
+                <Nav>
+                  <MenuItem target="_blank" href="http://www.mcgregornextfight.com" style={{color: 'gray'}} eventKey={2}><Glyphicon glyph="star" />  Conor McGregor</MenuItem>
+                </Nav>
                 <Nav pullRight>
                   <MenuItem eventKey={1} href="/auth/google_oauth2"><Glyphicon glyph="log-in" />   Sign In With Google</MenuItem>
                 </Nav>
@@ -1028,6 +1037,9 @@ export default class NavigationBar extends React.Component {
                 </Nav>
                 <Nav>
                   <MenuItem eventKey={2} onSelect={()=> self.superfight()}><Glyphicon glyph="fire" />   Superfights</MenuItem>
+                </Nav>
+                <Nav>
+                  <MenuItem target="_blank" href="http://www.mcgregornextfight.com" style={{color: 'gray'}} eventKey={2}><Glyphicon glyph="star" />  Conor McGregor</MenuItem>
                 </Nav>
                 <Nav pullRight>
                   <MenuItem eventKey={2} href="signout"><Glyphicon glyph="log-out" />   Log Out</MenuItem>
