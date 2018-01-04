@@ -263,10 +263,12 @@ createFights()
 # Now check the fighters where is_updated=false. That means they are no longer ranked in the top 15. Delete their fights and delete them.
 
 unranked_fighters = Fighter.where(is_updated: 'false')
+puts 'Unranked fighters: '
 unranked_fighters.each{|f|
 	# Delete all their fights
-	fights = Fight.where("fighter_one_id = '"+f.id+"' OR fighter_two_id = '"+f.id+"'")
-	fight.each{|fi|
+	puts f.name + ' ' + f.id.to_s
+	fights = Fight.where("fighter_one_id = '"+f.id.to_s+"' OR fighter_two_id = '"+f.id.to_s+"'")
+	fights.each{|fi|
 		Fight.destroy(fi.id)
 	}
 	Fighter.destroy(f.id)
