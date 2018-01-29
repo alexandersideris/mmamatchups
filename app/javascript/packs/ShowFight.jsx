@@ -16,9 +16,9 @@ export default class ShowFight extends React.Component {
     console.log("hey"+this.props.current_user)
     if(this.props.current_user == null){
       if(this.props.isMobile == 'true'){
-        alert("You need to sign in to vote. Just tap 'Sign In with Google', it's easy!   :)");
+        alert("You need to sign in to vote mate.   :)");
       }else{
-        alert("You need to sign in to vote. Just click 'Sign In with Google', it's easy!   :)");
+        alert("You need to sign in to vote mate.   :)");
       }
     }else{
       //console.log(this.props.current_user.name+ " liked fight "+this.props.fight)
@@ -150,7 +150,7 @@ export default class ShowFight extends React.Component {
             <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
               <p style={{fontSize: 30, marginBottom: 10, color: 'red'}}>{str}</p>
               <p style={{fontSize: 30, marginBottom: 10}}>Upvotes: {upvotes}</p>
-              <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 30}}>Upvote this fight!</Button>
+              <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 30}}>I want to see this fight!</Button>
             </div>
 
           </div>
@@ -215,7 +215,7 @@ export default class ShowFight extends React.Component {
             <div style={{minWidth: '1140px', textAlign: 'center', backgroundColor: '', marginBottom: '150px'}}>
               <p style={{fontSize: 30, marginBottom: 10, color: 'red'}}>{str}</p>
               <p style={{fontSize: 25, marginBottom: 10}}>Upvotes: {upvotes}</p>
-              <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 22}}>Upvote this fight!</Button>
+              <Button ref="button" onClick={()=>this.like()} bsStyle="info" style={{fontSize: 22}}>I want to see this fight!</Button>
             </div>
 
           </div>
